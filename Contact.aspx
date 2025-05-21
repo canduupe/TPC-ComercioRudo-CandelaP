@@ -2,18 +2,17 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main aria-labelledby="title">
-        <h2 id="title"><%: Title %>.</h2>
-        <h3>Your contact page.</h3>
+        <h3>COMERCIO RUDO</h3>
         <address>
-            One Microsoft Way<br />
-            Redmond, WA 98052-6399<br />
-            <abbr title="Phone">P:</abbr>
-            425.555.0100
+            <b> Sucursal: </b> Av Rudo 1948, Buenos Aires, Argentina<br />
+ 
+            <b>Celular: </b> 
+            1151128890
         </address>
 
         <address>
-            <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-            <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+            <strong>Compras:</strong>   <a href="comercio@gmail.com">Comercio.rudo@gmail.com</a><br />
+            <strong>Atención al cliente:</strong> <a href="Atencion.rudo@gmail.com">Atencion.rudo@gmail.com</a>
         </address>
     </main>
 </asp:Content>
