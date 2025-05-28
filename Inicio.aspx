@@ -1,16 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="TPC_ComercioRudo_CandelaP.Inicio" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="TPC_ComercioRudo_CandelaP.Inicio" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div>
+         <asp:Label ID="lblUsuario" runat="server" Text="Usuario"></asp:Label>
+    </div>
+    <div>
+        <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
+    </div>
+    <div>
+        <asp:Label ID="lblContraseña" runat="server" Text="Contraseña"></asp:Label>
+    </div>
+    <div>
+        <asp:TextBox ID="txtContraseña" runat="server"></asp:TextBox>
+    </div>
+    <div>
+        <asp:Button ID="btnInicar" runat="server" Text="Iniciar" OnClick="btnInicar_Click"/>
+    </div>
+</asp:Content>

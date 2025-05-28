@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace TPC_ComercioRudo_CandelaP
 {
-    public partial class Inicio : System.Web.UI.Page
+    public partial class Productos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void btnInicar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Productos.aspx", false);
         }
     }
 }
