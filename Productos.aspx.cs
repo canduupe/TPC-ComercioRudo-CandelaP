@@ -11,7 +11,15 @@ namespace TPC_ComercioRudo_CandelaP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Request.QueryString["Usuario"] != null)
+            {
+                string user = Request.QueryString["Usuario"].ToString();
+                lblCliente.Text = "bienvenido/a " + user;
+            }
+            else
+            {
+                lblCliente.Text = "No se reconocio el cliente";
+            }
         }
     }
 }

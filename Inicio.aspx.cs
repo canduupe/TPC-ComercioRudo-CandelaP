@@ -16,7 +16,8 @@ namespace TPC_ComercioRudo_CandelaP
 
         protected void btnInicar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Productos.aspx", false);
+            string Usuario = txtUsuario.Text;
+            Response.Redirect("Productos.aspx?Usuario=" + Usuario, false);
         }
     }
 }
