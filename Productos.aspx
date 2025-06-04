@@ -2,6 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
        
     <asp:Label ID="lblCliente" runat="server" Text="Label"></asp:Label>
-    <br/>
+
        <h2>Lista de productos</h2>
+        
+     <asp:GridView runat="server" ID="dgvProductos"></asp:GridView>
+ 
+
 </asp:Content>

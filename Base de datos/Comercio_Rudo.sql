@@ -72,3 +72,25 @@ Factura int identity (1,1),
 Precio Money not null,
 Fecha datetime not null
 )
+
+---INSERTS
+
+---marcas
+insert into Marca(Nombre)
+values ('Mogul')
+
+---categorias
+insert into Categoria(Nombre)
+values ('Golosina')
+
+---proveedores
+insert into Proveedor(Nombre, Marca, Categoria)
+values ('Los dos hermanos', 1, 1)
+
+---productos
+insert into Producto(Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo) 
+values ('Gomitas', '100g', 1000, 1, 1, 1, 30, 20)
+
+select * from Marca
+
+select IdProducto, Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo, Activo from Producto

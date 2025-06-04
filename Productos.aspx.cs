@@ -22,6 +22,11 @@ namespace TPC_ComercioRudo_CandelaP
             {
                 lblCliente.Text = "No se reconocio el cliente";
             }
+
+            NegocioProducto negocio = new NegocioProducto();
+            dgvProductos.DataSource = negocio.listar();
+            dgvProductos.DataBind();
+
         }
     }
 }
