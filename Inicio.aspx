@@ -1,23 +1,62 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="TPC_ComercioRudo_CandelaP.Inicio" %>
+﻿<%@ Page Title="Inicio de sesión" Language="C#" MasterPageFile="~/Site.Master"
+    AutoEventWireup="true"
+    CodeBehind="Inicio.aspx.cs"
+    Inherits="TPC_ComercioRudo_CandelaP.Inicio" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<form>
-    <div class="mb-3">
-         <asp:Label ID="lblUsuario" class="form-label" runat="server" Text="Usuario"></asp:Label>
+
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+
+        <div class="card shadow p-4" style="min-width: 350px;">
+
+            <h4 class="text-center mb-4">Iniciar sesión</h4>
+
+            <div class="mb-3">
+                <asp:Label 
+                    ID="lblUsuario" 
+                    runat="server" 
+                    Text="Usuario"
+                    CssClass="form-label">
+                </asp:Label>
+
+                <asp:TextBox 
+                    ID="txtUsuario" 
+                    runat="server"
+                    CssClass="form-control"
+                    Placeholder="Ingrese su usuario">
+                </asp:TextBox>
+            </div>
+
+            <div class="mb-3">
+                <asp:Label 
+                    ID="lblContraseña" 
+                    runat="server" 
+                    Text="Contraseña"
+                    CssClass="form-label">
+                </asp:Label>
+
+                <asp:TextBox 
+                    ID="txtContraseña"
+                    runat="server"
+                    TextMode="Password"
+                    CssClass="form-control"
+                    Placeholder="Ingrese su contraseña">
+                </asp:TextBox>
+
+            </div>
+
+            <div class="d-grid mt-4">
+                <asp:Button 
+                    ID="btnInicar" 
+                    runat="server"
+                    Text="Iniciar sesión"
+                    CssClass="btn btn-dark"
+                    OnClick="btnInicar_Click" />
+            </div>
+
+        </div>
+
     </div>
-    <div class="mb-3">
-        <asp:TextBox ID="txtUsuario" class="form-control" runat="server"></asp:TextBox>
-    </div>
-    <div class="mb-3">
-        <asp:Label ID="lblContraseña" class="form-label" runat="server" Text="Contraseña"></asp:Label>
-    </div>
-    <div class="mb-3">
-        <asp:TextBox type="password" ID="txtContraseña" class="form-control" runat="server"></asp:TextBox>
-    <div id="passwordHelpBlock" class="form-text">
-    La contraseña debe tener entre 8-15 caracteres
-    </div>
-    </div>
-    <div>
-        <asp:Button ID="btnInicar" runat="server" class="btn btn-dark" Text="Iniciar" OnClick="btnInicar_Click"/>
-    </div>
-</form>
+
 </asp:Content>
+
