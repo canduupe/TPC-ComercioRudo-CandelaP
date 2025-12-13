@@ -44,6 +44,9 @@ Marca int not null references Marca(IdMarca),
 Categoria int not null references Categoria(IdCategoria)
 )
 
+ALTER TABLE Proveedor
+ADD Activo int NOT NULL DEFAULT 1;
+
 Create table Producto(
 IdProducto int primary key identity(1,1),
 Nombre varchar(50) not null,
@@ -91,6 +94,18 @@ values ('Los dos hermanos', 1, 1)
 insert into Producto(Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo) 
 values ('Gomitas', '100g', 1000, 1, 1, 1, 30, 20)
 
-select * from Marca
+insert into Producto(Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo) 
+values ('Caramelos', '200g', 4000, 1, 1, 1, 50, 10)
+
+insert into Producto(Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo) 
+values ('Papas fritas', '80g', 3500, 1, 1, 1, 70, 0)
+
+---usuarios
+
+insert into Usuarios(Usuario, Contraseña, TipoUsuario, Activo) 
+values ('can', '1234', 1, 1)
+
+select * from Categoria
 
 select IdProducto, Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo, Activo from Producto
+
