@@ -8,7 +8,7 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h3 class="mb-0">Lista de proveedores</h3>
+                    <h3 class="mb-0">Proveedores</h3>
 
                     <asp:Button
                         ID="btnNuevo"
@@ -108,17 +108,15 @@
                     </div>
 
                 </asp:Panel>
-
+                <div>
+                    <asp:Button
+                        ID="btnVolver"
+                        runat="server"
+                        Text="Volver"
+                        CssClass="btn btn-outline-secondary me-2"
+                        OnClick="btnVolver_Click" />
+                </div>
             </div>
-
-            <div>
-            <asp:Button
-                ID="btnVolver"
-                runat="server"
-                Text="Volver"
-                CssClass="btn btn-secondary ms-2"
-                OnClick="btnVolver_Click" />
-        </div>
         </div>
 
     </div>

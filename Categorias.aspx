@@ -75,16 +75,15 @@
                         OnClick="btnCancelar_Click" />
 
                 </asp:Panel>
-
+                <div>
+                    <asp:Button
+                        ID="btnVolver"
+                        runat="server"
+                        Text="Volver"
+                        CssClass="btn btn-outline-secondary me-2"
+                        OnClick="btnVolver_Click" />
+                </div>
             </div>
-               <div>
-       <asp:Button
-           ID="btnVolver"
-           runat="server"
-           Text="Volver"
-           CssClass="btn btn-secondary ms-2"
-           OnClick="btnVolver_Click" />
-   </div>
         </div>
 
     </div>
