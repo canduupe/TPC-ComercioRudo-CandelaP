@@ -3,29 +3,47 @@ go
 use Comercio_Rudo
 
 ---TABLAS
+
+Create table TipoUsuario(
+    IdTipoUsuario int primary key identity(1,1),
+    Descripcion varchar(30) not null
+)
+
+INSERT INTO TipoUsuario (Descripcion) VALUES
+('Administrador'),
+('Vendedor');
+
+
 Create table Usuarios(
 Id int primary key identity (1,1),
 Usuario varchar(20) not null,
 Contraseña varchar(20) not null,
-TipoUsuario int not null,
+IdTipoUsuario int not null,
 Activo int not null default 1
+
+foreign key (IdTipoUsuario) references TipoUsuario(IdTipoUsuario)
 )
 
 Create table Vendedor(
-IdVendedor int primary key identity (1,1),
-Nombre varchar(50) not null, 
-Apellido varchar(50) not null,
-IdUsuario int foreign key references Usuarios(Id),
-Activo int not null
+    IdVendedor int primary key identity (1,1),
+    Nombre varchar(50) not null, 
+    Apellido varchar(50) not null,
+    IdUsuario int not null,
+    Activo int not null default 1,
+
+    foreign key (IdUsuario) references Usuarios(Id)
 )
 
 Create table Administrador(
-IdAdministrador int Primary key identity(1,1),
-Nombre varchar(50) not null, 
-Apellido varchar(50) not null,
-IdUsuario int foreign key references Usuarios(Id),
-Activo int not null
+    IdAdministrador int primary key identity(1,1),
+    Nombre varchar(50) not null, 
+    Apellido varchar(50) not null,
+    IdUsuario int not null,
+    Activo int not null default 1,
+
+    foreign key (IdUsuario) references Usuarios(Id)
 )
+
 
 Create table Marca(
 IdMarca int primary key identity (1,1),
@@ -60,6 +78,17 @@ StockMinimo int not null,
 Activo int not null default 1,
 )
 
+Create table Cliente(
+    IdCliente int primary key identity(1,1),
+    Nombre varchar(50) not null,
+    Apellido varchar(50) not null,
+    DNI varchar(15) not null,
+    Telefono varchar(20),
+    Email varchar(50),
+    Direccion varchar(100),
+    Activo int not null default 1
+)
+
 Create table Compra(
 IdCompra int primary key identity (1,1),
 IdProveedor int null references Proveedor(IdProveedor),
@@ -70,42 +99,95 @@ StockActual int not null
 )
 
 Create table Venta(
-IdVenta int primary key identity (1,1),
-Factura int identity (1,1),
-Precio Money not null,
-Fecha datetime not null
+    IdVenta int primary key identity (1,1),
+    NroFactura int not null,
+    IdCliente int not null,
+    IdVendedor int not null,
+    Fecha datetime not null,
+    Total money not null,
+
+    foreign key (IdCliente) references Cliente(IdCliente),
+    foreign key (IdVendedor) references Vendedor(IdVendedor)
 )
+
+Create table FacturaCompra(
+    IdFacturaCompra int primary key identity(1,1),
+    NroFactura varchar(20) not null,
+    Fecha datetime not null,
+    IdProveedor int not null,
+    Total money not null,
+    Activo int not null default 1,
+
+    foreign key (IdProveedor) references Proveedor(IdProveedor)
+)
+
+Create table DetalleFacturaCompra(
+    IdDetalle int primary key identity(1,1),
+    IdFacturaCompra int not null,
+    IdProducto int not null,
+    PrecioUnitario money not null,
+    Cantidad int not null,
+    Subtotal money not null,
+
+    foreign key (IdFacturaCompra) references FacturaCompra(IdFacturaCompra),
+    foreign key (IdProducto) references Producto(IdProducto)
+)
+
+
 
 ---INSERTS
 
----marcas
-insert into Marca(Nombre)
-values ('Mogul')
+INSERT INTO Usuarios (Usuario, Contraseña, IdTipoUsuario, Activo) VALUES
+('admin', '1234', 1, 1),
+('ven', '1234', 2, 1),
+('vend2', '1234', 2, 1),
+('vend3', '1234', 2, 1);
 
----categorias
-insert into Categoria(Nombre)
-values ('Golosina')
+INSERT INTO Administrador (Nombre, Apellido, IdUsuario, Activo) VALUES
+('Can', 'Pena', 1, 1);
 
----proveedores
-insert into Proveedor(Nombre, Marca, Categoria)
-values ('Los dos hermanos', 1, 1)
+INSERT INTO Vendedor (Nombre, Apellido, IdUsuario, Activo) VALUES
+('Juan', 'Lopez', 2, 1),
+('María', 'Fernandez', 3, 1),
+('Pedro', 'Martinez', 4, 1);
 
----productos
-insert into Producto(Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo) 
-values ('Gomitas', '100g', 1000, 1, 1, 1, 30, 20)
+INSERT INTO Marca (Nombre) VALUES
+('Arcor'),
+('Kinder'),
+('Mogul'),
+('Billiken'),
+('Lays');
 
-insert into Producto(Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo) 
-values ('Caramelos', '200g', 4000, 1, 1, 1, 50, 10)
+INSERT INTO Categoria (Nombre) VALUES
+('Golosinas'),
+('Snacks'),
+('Galletitas'),
+('Bebidas');
 
-insert into Producto(Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo) 
-values ('Papas fritas', '80g', 3500, 1, 1, 1, 70, 0)
+INSERT INTO Proveedor (Nombre, Marca, Categoria, Activo) VALUES
+('Distribuidora Norte', 1, 1, 1),
+('Importadora Ale', 2, 2, 1),
+('Mayorista 2 hermanos', 3, 3, 1),
+('Proveedor Lali', 4, 4, 1);
 
----usuarios
+INSERT INTO Producto
+(Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo, Activo)
+VALUES
+('Alfajor', 'Chocolate', 3500, 1, 1, 1, 10, 2, 1),
+('Gomitas', 'Dinosaurios', 2000, 3, 1, 3, 8, 2, 1),
+('Papas', 'Jamon serrano', 4200, 4, 2, 4, 15, 5, 1);
 
-insert into Usuarios(Usuario, Contraseña, TipoUsuario, Activo) 
-values ('can', '1234', 1, 1)
+INSERT INTO Cliente
+(Nombre, Apellido, DNI, Telefono, Email, Direccion, Activo)
+VALUES
+('Ana', 'Ruiz', '30123456', '1111111111', 'ana@mail.com', 'Av. Avellaneda 123', 1),
+('Luis', 'Martín', '28987654', '2222222222', 'luis@mail.com', 'Calle Tucuman 456', 1),
+('Sofía', 'Torres', '33444555', '3333333333', 'sofia@mail.com', 'Belgrano 789', 1),
+('Diego', 'Molina', '31222333', '4444444444', 'diego@mail.com', 'San Martín 321', 1),
+('Carla', 'Suarez', '29888777', '5555555555', 'carla@mail.com', 'Mitre 654', 1);
 
-select * from Categoria
+
+select * from TipoUsuario
 
 select IdProducto, Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo, Activo from Producto
 

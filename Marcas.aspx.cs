@@ -72,5 +72,9 @@ namespace TPC_ComercioRudo_CandelaP
                 cargarGrilla();
             }
         }
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PanelAdmin.aspx");
+        }
     }
 }

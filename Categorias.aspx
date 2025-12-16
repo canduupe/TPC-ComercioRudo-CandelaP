@@ -77,6 +77,14 @@
                 </asp:Panel>
 
             </div>
+               <div>
+       <asp:Button
+           ID="btnVolver"
+           runat="server"
+           Text="Volver"
+           CssClass="btn btn-secondary ms-2"
+           OnClick="btnVolver_Click" />
+   </div>
         </div>
 
     </div>

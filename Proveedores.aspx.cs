@@ -105,5 +105,10 @@ namespace TPC_ComercioRudo_CandelaP
             ddlMarca.SelectedIndex = 0;
             ddlCategoria.SelectedIndex = 0;
         }
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PanelAdmin.aspx");
+        }
+
     }
 }

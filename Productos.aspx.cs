@@ -106,5 +106,10 @@ namespace TPC_ComercioRudo_CandelaP
             txtStockActual.Text = "";
             txtStockMinimo.Text = "";
         }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PanelAdmin.aspx");
+        }
     }
 }
