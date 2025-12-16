@@ -124,6 +124,7 @@
     <Content Include="Inicio.aspx" />
     <Content Include="Marcas.aspx" />
     <Content Include="PanelAdmin.aspx" />
+    <Content Include="PanelVendedor.aspx" />
     <Content Include="Productos.aspx" />
     <Content Include="Proveedores.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -234,6 +235,13 @@
     </Compile>
     <Compile Include="PanelAdmin.aspx.designer.cs">
       <DependentUpon>PanelAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelVendedor.aspx.cs">
+      <DependentUpon>PanelVendedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelVendedor.aspx.designer.cs">
+      <DependentUpon>PanelVendedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Productos.aspx.cs">
       <DependentUpon>Productos.aspx</DependentUpon>

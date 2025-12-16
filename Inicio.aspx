@@ -29,14 +29,14 @@
 
             <div class="mb-3">
                 <asp:Label 
-                    ID="lblContraseña" 
+                    ID="lblContrasena" 
                     runat="server" 
                     Text="Contraseña"
                     CssClass="form-label">
                 </asp:Label>
 
-                <asp:TextBox 
-                    ID="txtContraseña"
+                <asp:TextBox
+                    ID="txtContrasena"
                     runat="server"
                     TextMode="Password"
                     CssClass="form-control"
@@ -46,12 +46,13 @@
             </div>
 
             <div class="d-grid mt-4">
-                <asp:Button 
-                    ID="btnInicar" 
+                <asp:Button
+                    ID="btnIniciar"
                     runat="server"
                     Text="Iniciar sesión"
                     CssClass="btn btn-dark"
-                    OnClick="btnInicar_Click" />
+                    OnClick="btnIniciar_Click" />
+
             </div>
 
         </div>

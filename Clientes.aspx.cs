@@ -9,9 +9,16 @@ namespace TPC_ComercioRudo_CandelaP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["TipoUsuario"] == null)
+            {
+                Response.Redirect("Login.aspx");
+                return;
+            }
+
             if (!IsPostBack)
             {
                 cargarGrilla();
+                configurarVistaPorRol();
             }
         }
 
@@ -21,6 +28,26 @@ namespace TPC_ComercioRudo_CandelaP
             dgvClientes.DataSource = negocio.listar();
             dgvClientes.DataBind();
         }
+
+        private void configurarVistaPorRol()
+        {
+            int tipoUsuario = (int)Session["TipoUsuario"];
+
+            if (tipoUsuario == 2)
+            {
+                btnNuevo.Visible = false;
+
+                dgvClientes.Columns[dgvClientes.Columns.Count - 1].Visible = false;
+                dgvClientes.Columns[dgvClientes.Columns.Count - 2].Visible = false;
+
+                ViewState["volver"] = "PanelVendedor.aspx";
+            }
+            else
+            {
+                ViewState["volver"] = "PanelAdmin.aspx";
+            }
+        }
+
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
@@ -100,7 +127,7 @@ namespace TPC_ComercioRudo_CandelaP
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("PanelAdmin.aspx");
+            Response.Redirect(ViewState["volver"].ToString());
         }
     }
 }
