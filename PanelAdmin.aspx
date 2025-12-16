@@ -53,6 +53,18 @@
                     <div class="col-md-4">
                         <div class="card h-100 shadow-sm">
                             <div class="card-body text-center">
+                                <h5 class="card-title">Productos</h5>
+                                <p class="card-text">Administrar productos</p>
+                                <asp:Button runat="server" Text="Gestionar"
+                                    CssClass="btn btn-secondary"
+                                    PostBackUrl="~/Productos.aspx" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
                                 <h5 class="card-title">Marcas</h5>
                                 <p class="card-text">Administrar marcas</p>
                                 <asp:Button runat="server" Text="Gestionar"

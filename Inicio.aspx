@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Inicio de sesión" Language="C#" MasterPageFile="~/Site.Master"
+﻿ <%@ Page Title="Inicio de sesión" Language="C#" MasterPageFile="~/Site.Master"
     AutoEventWireup="true"
     CodeBehind="Inicio.aspx.cs"
     Inherits="TPC_ComercioRudo_CandelaP.Inicio" %>

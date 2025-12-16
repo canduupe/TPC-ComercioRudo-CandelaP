@@ -41,27 +41,16 @@
                     <Columns>
                         <asp:BoundField DataField="nombre" HeaderText="Producto" />
                         <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
-
                         <asp:BoundField
                             DataField="precio"
                             HeaderText="Precio"
                             DataFormatString="{0:C}" />
-
-                        <asp:BoundField DataField="proveedor" HeaderText="Proveedor (ID)" />
-                        <asp:BoundField DataField="marca" HeaderText="Marca (ID)" />
-                        <asp:BoundField DataField="categoria" HeaderText="Categoría (ID)" />
-
+                        <asp:BoundField DataField="Proveedor.nombre" HeaderText="Proveedor" />
+                        <asp:BoundField DataField="Marca.nombre" HeaderText="Marca" />
+                        <asp:BoundField DataField="Categoria.nombre" HeaderText="Categoría" />
                         <asp:BoundField DataField="stockActual" HeaderText="Stock actual" />
                         <asp:BoundField DataField="stockMinimo" HeaderText="Stock mínimo" />
-
-                        <asp:TemplateField HeaderText="Estado">
-                            <ItemTemplate>
-                                <span class='<%# ((int)Eval("activo") == 1) ? "badge bg-success" : "badge bg-danger" %>'>
-                                    <%# ((int)Eval("activo") == 1) ? "Activo" : "Inactivo" %>
-                                </span>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
+                        
                         <asp:ButtonField
                             Text="Editar"
                             CommandName="Editar"
@@ -106,13 +95,26 @@
                                 CssClass="form-control" Placeholder="Descripción" />
                         </div>
                         <div class="col-md-3">
-                            <asp:TextBox ID="txtMarca" runat="server"
-                                CssClass="form-control" Placeholder="ID Marca" />
+                            <asp:DropDownList
+                                ID="ddlMarca"
+                                runat="server"
+                                CssClass="form-control">
+                            </asp:DropDownList>
                         </div>
                         <div class="col-md-3">
-                            <asp:TextBox ID="txtCategoria" runat="server"
-                                CssClass="form-control" Placeholder="ID Categoría" />
+                            <asp:DropDownList
+                                ID="ddlCategoria"
+                                runat="server"
+                                CssClass="form-control">
+                            </asp:DropDownList>
                         </div>
+                        <div class="col-md-3">
+                            <asp:DropDownList
+                                ID="ddlProveedor"
+                                runat="server"
+                                CssClass="form-control">
+                            </asp:DropDownList>
+                        </div>                    
                     </div>
 
 

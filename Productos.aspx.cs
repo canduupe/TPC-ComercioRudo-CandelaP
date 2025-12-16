@@ -11,19 +11,19 @@ namespace TPC_ComercioRudo_CandelaP
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Usuario"] == null)
+            {
+                Response.Redirect("Inicio.aspx");
+                return;
+            }
+
             if (!IsPostBack)
             {
-                if (Request.QueryString["Usuario"] != null)
-                {
-                    string user = Request.QueryString["Usuario"].ToString();
-                    lblCliente.Text = "Bienvenido/a " + user;
-                }
-                else
-                {
-                    lblCliente.Text = "No se reconoció el cliente";
-                }
-
                 cargarGrilla();
+                cargarProveedores();
+                cargarMarcas();
+                cargarCategorias();
+                configurarVistaPorRol();
             }
         }
 
@@ -31,6 +31,57 @@ namespace TPC_ComercioRudo_CandelaP
         {
             dgvProductos.DataSource = negocio.listar();
             dgvProductos.DataBind();
+        }
+
+        private void cargarProveedores()
+        {
+            NegocioProveedor negocio = new NegocioProveedor();
+
+            ddlProveedor.DataSource = negocio.listar();
+            ddlProveedor.DataValueField = "id";
+            ddlProveedor.DataTextField = "nombre";
+            ddlProveedor.DataBind();
+
+            ddlProveedor.Items.Insert(0, new ListItem("Seleccione un proveedor", "0"));
+        }
+
+        private void cargarMarcas()
+        {
+            NegocioMarca negocio = new NegocioMarca();
+
+            ddlMarca.DataSource = negocio.listar();
+            ddlMarca.DataValueField = "id";   
+            ddlMarca.DataTextField = "nombre"; 
+            ddlMarca.DataBind();
+
+            ddlMarca.Items.Insert(0, new ListItem("Seleccione una marca", "0"));
+        }
+
+        private void cargarCategorias()
+        {
+            NegocioCategoria negocio = new NegocioCategoria();
+
+            ddlCategoria.DataSource = negocio.listar();
+            ddlCategoria.DataValueField = "id";
+            ddlCategoria.DataTextField = "nombre";
+            ddlCategoria.DataBind();
+
+            ddlCategoria.Items.Insert(0, new ListItem("Seleccione una categoria", "0"));
+        }
+
+
+        private void configurarVistaPorRol()
+        {
+            Usuario usuario = (Usuario)Session["Usuario"];
+
+            if (usuario.idTipoUsuario == 2)
+            {      
+                ViewState["volver"] = "PanelVendedor.aspx";
+            }
+            else
+            {
+                ViewState["volver"] = "PanelAdmin.aspx";
+            }
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -48,9 +99,16 @@ namespace TPC_ComercioRudo_CandelaP
             p.precio = decimal.Parse(txtPrecio.Text);
             p.stockActual = int.Parse(txtStockActual.Text);
             p.stockMinimo = int.Parse(txtStockMinimo.Text);
-            p.marca = int.Parse(txtMarca.Text);
-            p.categoria = int.Parse(txtCategoria.Text);
-            p.proveedor = 1;
+
+            p.proveedor = new Proveedor();
+            p.proveedor.id = int.Parse(ddlProveedor.SelectedValue);
+
+            p.Marca = new Marca();
+            p.Marca.id = int.Parse(ddlMarca.SelectedValue);
+
+            p.Categoria = new Categoria();
+            p.Categoria.id = int.Parse(ddlCategoria.SelectedValue);
+        
             p.activo = 1;
 
             if (string.IsNullOrEmpty(hfIdProducto.Value))
@@ -83,6 +141,10 @@ namespace TPC_ComercioRudo_CandelaP
 
                 hfIdProducto.Value = p.id.ToString();
                 txtNombre.Text = p.nombre;
+                txtDescripcion.Text = p.descripcion.ToString();
+                ddlProveedor.SelectedValue = p.proveedor.id.ToString();
+                ddlMarca.SelectedValue = p.Marca.id.ToString();
+                ddlCategoria.SelectedValue = p.Categoria.id.ToString();
                 txtPrecio.Text = p.precio.ToString();
                 txtStockActual.Text = p.stockActual.ToString();
                 txtStockMinimo.Text = p.stockMinimo.ToString();
@@ -102,6 +164,10 @@ namespace TPC_ComercioRudo_CandelaP
         {
             hfIdProducto.Value = "";
             txtNombre.Text = "";
+            txtDescripcion.Text = "";
+            ddlProveedor.SelectedIndex = 0;
+            ddlMarca.SelectedIndex = 0;
+            ddlCategoria.SelectedIndex = 0;
             txtPrecio.Text = "";
             txtStockActual.Text = "";
             txtStockMinimo.Text = "";
@@ -109,7 +175,7 @@ namespace TPC_ComercioRudo_CandelaP
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("PanelAdmin.aspx");
+            Response.Redirect(ViewState["volver"].ToString());
         }
     }
 }
