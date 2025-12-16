@@ -15,35 +15,29 @@ namespace TPC_ComercioRudo_CandelaP
             {
             }
 
-            protected void btnIniciar_Click(object sender, EventArgs e)
+        protected void btnIniciar_Click(object sender, EventArgs e)
+        {
+            NegocioUsuario negocio = new NegocioUsuario();
+            Usuario usuario = negocio.login(txtUsuario.Text, txtContrasena.Text);
+
+            if (usuario != null)
             {
-                NegocioUsuario negocio = new NegocioUsuario();
+                Session["Usuario"] = usuario;
 
-                Usuario usuario = negocio.login(txtUsuario.Text, txtContrasena.Text);
-
-                if (usuario != null)
-                {
-                    Session["Usuario"] = usuario.usuario;
-                    Session["TipoUsuario"] = usuario.idTipoUsuario;
-
-                    if (usuario.idTipoUsuario == 1)
-                    {
-                        Response.Redirect("PanelAdmin.aspx");
-                    }
-                    else if (usuario.idTipoUsuario == 2)
-                    {
-                        Response.Redirect("PanelVendedor.aspx");
-                    }
-                }
+                if (usuario.idTipoUsuario == 1)
+                    Response.Redirect("PanelAdmin.aspx");
                 else
-                {
-                    ClientScript.RegisterStartupScript(
-                        this.GetType(),
-                        "alert",
-                        "alert('Usuario o contraseña incorrectos');",
-                        true
-                    );
-                }
+                    Response.Redirect("PanelVendedor.aspx");
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(
+                    this.GetType(),
+                    "alert",
+                    "alert('Usuario o contraseña incorrectos');",
+                    true
+                );
             }
         }
     }
+}

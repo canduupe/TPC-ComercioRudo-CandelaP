@@ -40,7 +40,7 @@
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" runat="server" href="~/Inicio">Comercio Rudo</a>
+                <a class="navbar-brand" runat="server" href="~/Inicio.aspx">Comercio Rudo</a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -50,6 +50,21 @@
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contacto</a></li>
                     </ul>
                 </div>
+                <asp:Panel ID="pnlUsuario" runat="server" CssClass="d-flex align-items-center" Visible="false">
+                    <asp:Label
+                        ID="lblUsuarioLogueado"
+                        runat="server"
+                        CssClass="me-3 text-white fw-bold">
+                    </asp:Label>
+
+                    <asp:Button
+                        ID="btnCerrarSesion"
+                        runat="server"
+                        Text="Cerrar sesión"
+                        CssClass="btn btn-outline-light btn-sm"
+                        OnClick="btnCerrarSesion_Click" />
+                </asp:Panel>
+
             </div>
         </nav>
         <div class="container body-content">
