@@ -75,14 +75,14 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 shadow-sm text-center">
                             <div class="card-body">
-                                <h5 class="card-title">Mis Ventas</h5>
-                                <p class="card-text">Historial de ventas</p>
+                                <h5 class="card-title">Mis Compras</h5>
+                                <p class="card-text">Historial de compras</p>
                                 <asp:Button
-                                    ID="btnMisVentas"
+                                    ID="btnMisCompras"
                                     runat="server"
                                     Text="Ir"
                                     CssClass="btn btn-warning"
-                                    OnClick="btnMisVentas_Click" />
+                                    OnClick="btnMisCompras_Click" />
                             </div>
                         </div>
                     </div>

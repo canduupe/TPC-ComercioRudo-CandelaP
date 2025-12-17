@@ -38,5 +38,10 @@ namespace TPC_ComercioRudo_CandelaP
         {
             Response.Redirect("Compras.aspx");
         }
+
+        protected void btnMisCompras_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HistorialCompras.aspx");
+        }
     }
 }

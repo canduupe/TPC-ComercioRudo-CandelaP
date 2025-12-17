@@ -14,20 +14,40 @@ namespace TPC_ComercioRudo_CandelaP
             protected void Page_Load(object sender, EventArgs e)
             {
             }
-
-        protected void btnIniciar_Click(object sender, EventArgs e)
+            protected void btnIniciar_Click(object sender, EventArgs e)
         {
-            NegocioUsuario negocio = new NegocioUsuario();
-            Usuario usuario = negocio.login(txtUsuario.Text, txtContrasena.Text);
+            NegocioUsuario negocioUsuario = new NegocioUsuario();
+            Usuario usuario = negocioUsuario.login(txtUsuario.Text, txtContrasena.Text);
 
             if (usuario != null)
             {
                 Session["Usuario"] = usuario;
+                Session["TipoUsuario"] = usuario.idTipoUsuario;
 
-                if (usuario.idTipoUsuario == 1)
+                if (usuario.idTipoUsuario == 1) // administrador
+                {
                     Response.Redirect("PanelAdmin.aspx");
-                else
-                    Response.Redirect("PanelVendedor.aspx");
+                }
+                else // vendedor
+                {
+                    NegocioVendedor negocioVendedor = new NegocioVendedor();
+                    Vendedor vendedor = negocioVendedor.obtenerPorUsuario(usuario.id);
+
+                    if (vendedor != null)
+                    {
+                        Session["IdVendedor"] = vendedor.id;
+                        Response.Redirect("PanelVendedor.aspx");
+                    }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(
+                            this.GetType(),
+                            "alert",
+                            "alert('El usuario no tiene vendedor asociado');",
+                            true
+                        );
+                    }
+                }
             }
             else
             {
@@ -39,5 +59,7 @@ namespace TPC_ComercioRudo_CandelaP
                 );
             }
         }
+
     }
 }
+

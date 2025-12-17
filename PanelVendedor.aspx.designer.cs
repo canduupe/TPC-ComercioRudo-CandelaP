@@ -51,12 +51,12 @@ namespace TPC_ComercioRudo_CandelaP
         protected global::System.Web.UI.WebControls.Button btnProductos;
 
         /// <summary>
-        /// Control btnMisVentas.
+        /// Control btnMisCompras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMisVentas;
+        protected global::System.Web.UI.WebControls.Button btnMisCompras;
     }
 }

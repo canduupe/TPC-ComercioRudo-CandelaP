@@ -86,6 +86,9 @@ namespace TPC_ComercioRudo_CandelaP
             c.proveedor = new Proveedor();
             c.proveedor.id = int.Parse(ddlProveedor.SelectedValue);
 
+            c.vendedor = new Vendedor();
+            c.vendedor.id = (int)Session["IdVendedor"];
+
             c.producto = new Producto();
             c.producto.id = int.Parse(ddlProducto.SelectedValue);
 
