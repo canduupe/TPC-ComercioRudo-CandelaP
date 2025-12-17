@@ -12,6 +12,7 @@ namespace Dominio
             public Proveedor proveedor { get; set; }
             public Producto producto { get; set; }   
             public decimal precio { get; set; }
+            public decimal ganancia { get; set; }
             public int cantidad { get; set; }
     }
 }

@@ -32,6 +32,12 @@
                 runat="server"
                 CssClass="form-control mb-3" />
 
+            <label>Porcentaje de ganancia</label>
+            <asp:TextBox
+                ID="txtGanancia"
+                runat="server"
+                CssClass="form-control mb-3" />
+
             <asp:Button
                 ID="btnGuardar"
                 runat="server"

@@ -53,6 +53,9 @@ namespace TPC_ComercioRudo_CandelaP
             c.producto.id = int.Parse(ddlProducto.SelectedValue);
 
             c.cantidad = int.Parse(txtCantidad.Text);
+
+            c.ganancia = decimal.Parse(txtGanancia.Text);
+
             c.precio = decimal.Parse(txtPrecio.Text);
 
             NegocioCompra negocio = new NegocioCompra();
@@ -67,6 +70,7 @@ namespace TPC_ComercioRudo_CandelaP
             ddlProducto.SelectedIndex = 0;
             txtPrecio.Text = "";
             txtCantidad.Text = "";
+            txtGanancia.Text = "";
         }
 
     }

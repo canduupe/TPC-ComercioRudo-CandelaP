@@ -176,7 +176,27 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+        public void actualizarPrecio(int idProducto, decimal precio, decimal ganancia)
+        {
+            AccesoDatos datos = new AccesoDatos();
 
+            try
+            {
+                decimal precioNuevo = precio + (precio * (ganancia*0.01m));
+
+                datos.setearConsulta(
+                    "UPDATE Producto SET Precio = @Precio WHERE IdProducto = @IdProducto");
+
+                datos.setearParametro("@Precio", precioNuevo);
+                datos.setearParametro("@IdProducto", idProducto);
+
+                datos.realizarAccion();
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
 
     }

@@ -18,17 +18,19 @@ namespace Negocio
             try
             {
                 datos.setearConsulta(
-                    "INSERT INTO Compra (IdProveedor, IdProducto, Precio, Cantidad) " +
-                    "VALUES (@IdProveedor, @IdProducto, @Precio, @Cantidad)");
+                    "INSERT INTO Compra (IdProveedor, IdProducto, Precio, Cantidad, Ganancia) " +
+                    "VALUES (@IdProveedor, @IdProducto, @Precio, @Cantidad, @Ganancia)");
 
                 datos.setearParametro("@IdProveedor", compra.proveedor.id);
                 datos.setearParametro("@IdProducto", compra.producto.id);
                 datos.setearParametro("@Precio", compra.precio);
                 datos.setearParametro("@Cantidad", compra.cantidad);
+                datos.setearParametro("@Ganancia", compra.ganancia);
 
                 datos.realizarAccion();
 
                 prodNegocio.actualizarStock(compra.producto.id, compra.cantidad);
+                prodNegocio.actualizarPrecio(compra.producto.id, compra.precio, compra.ganancia);
             }
             finally
             {
