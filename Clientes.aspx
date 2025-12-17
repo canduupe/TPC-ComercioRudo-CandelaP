@@ -31,7 +31,7 @@
                     CssClass="table table-striped table-hover table-bordered align-middle"
                     HeaderStyle-CssClass="table-dark"
                     AutoGenerateColumns="false"
-                    DataKeyNames="IdCliente"
+                    DataKeyNames="id"
                     OnRowCommand="dgvClientes_RowCommand">
 
                     <Columns>

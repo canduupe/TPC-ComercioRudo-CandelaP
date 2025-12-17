@@ -15,16 +15,15 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "INSERT INTO Producto (Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo, Activo) " +
-                    "VALUES (@Nombre, @Descripcion, @Precio, @Proveedor, @Marca, @Categoria, @StockActual, @StockMinimo, 1)");
+                datos.setearConsulta("INSERT INTO Producto (Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo, Activo) " +
+                                     "VALUES (@Nombre, @Descripcion, @Precio, @Proveedor, @Marca, @Categoria, @StockActual, @StockMinimo, 1)");
 
                 datos.setearParametro("@Nombre", nuevo.nombre);
                 datos.setearParametro("@Descripcion", nuevo.descripcion);
                 datos.setearParametro("@Precio", nuevo.precio);
                 datos.setearParametro("@Proveedor", nuevo.proveedor.id);
-                datos.setearParametro("@Marca", nuevo.Marca.id);
-                datos.setearParametro("@Categoria", nuevo.Categoria.id);
+                datos.setearParametro("@Marca", nuevo.marca.id);
+                datos.setearParametro("@Categoria", nuevo.categoria.id);
                 datos.setearParametro("@StockActual", nuevo.stockActual);
                 datos.setearParametro("@StockMinimo", nuevo.stockMinimo);
 
@@ -83,9 +82,9 @@ namespace Negocio
         
                 datos.setearParametro("@Proveedor", prod.proveedor.id);
 
-                datos.setearParametro("@Marca", prod.Marca.id);
+                datos.setearParametro("@Marca", prod.marca.id);
 
-                datos.setearParametro("@Categoria", prod.Categoria.id);
+                datos.setearParametro("@Categoria", prod.categoria.id);
 
                 datos.setearParametro("@StockActual", prod.stockActual);
                 datos.setearParametro("@StockMinimo", prod.stockMinimo);
@@ -107,16 +106,15 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(@"SELECT 
-            P.IdProducto, P.Nombre, P.Descripcion, P.Precio,
-            P.StockActual, P.StockMinimo, P.Activo,
-            PR.IdProveedor, PR.Nombre AS NombreProveedor,
-            M.IdMarca, M.Nombre AS NombreMarca,
-            C.IdCategoria, C.Nombre AS NombreCategoria
-            FROM Producto P
-            LEFT JOIN Proveedor PR ON PR.IdProveedor = P.Proveedor
-            INNER JOIN Marca M ON M.IdMarca = P.Marca
-            INNER JOIN Categoria C ON C.IdCategoria = P.Categoria");
+                datos.setearConsulta(@"SELECT P.IdProducto, P.Nombre, P.Descripcion, P.Precio,
+                                     P.StockActual, P.StockMinimo, P.Activo,
+                                     PR.IdProveedor, PR.Nombre AS NombreProveedor,
+                                     M.IdMarca, M.Nombre AS NombreMarca,
+                                     C.IdCategoria, C.Nombre AS NombreCategoria
+                                     FROM Producto P
+                                     LEFT JOIN Proveedor PR ON PR.IdProveedor = P.Proveedor
+                                     INNER JOIN Marca M ON M.IdMarca = P.Marca
+                                     INNER JOIN Categoria C ON C.IdCategoria = P.Categoria");
 
                 datos.realizarLectura();
 
@@ -136,13 +134,13 @@ namespace Negocio
                     aux.proveedor.id = (int)datos.Lector["IdProveedor"];
                     aux.proveedor.nombre = (string)datos.Lector["NombreProveedor"];
 
-                    aux.Marca = new Marca();
-                    aux.Marca.id = (int)datos.Lector["IdMarca"];
-                    aux.Marca.nombre = (string)datos.Lector["NombreMarca"];
+                    aux.marca = new Marca();
+                    aux.marca.id = (int)datos.Lector["IdMarca"];
+                    aux.marca.nombre = (string)datos.Lector["NombreMarca"];
 
-                    aux.Categoria = new Categoria();
-                    aux.Categoria.id = (int)datos.Lector["IdCategoria"];
-                    aux.Categoria.nombre = (string)datos.Lector["NombreCategoria"];
+                    aux.categoria = new Categoria();
+                    aux.categoria.id = (int)datos.Lector["IdCategoria"];
+                    aux.categoria.nombre = (string)datos.Lector["NombreCategoria"];
 
                     lista.Add(aux);
                 }
@@ -161,10 +159,9 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "UPDATE Producto " +
-                    "SET StockActual = StockActual + @Cantidad " +
-                    "WHERE IdProducto = @IdProducto");
+                datos.setearConsulta("UPDATE Producto " +
+                                     "SET StockActual = StockActual + @Cantidad " +
+                                     "WHERE IdProducto = @IdProducto");
 
                 datos.setearParametro("@Cantidad", cantidad);
                 datos.setearParametro("@IdProducto", idProducto);
@@ -184,8 +181,7 @@ namespace Negocio
             {
                 decimal precioNuevo = precio + (precio * (ganancia*0.01m));
 
-                datos.setearConsulta(
-                    "UPDATE Producto SET Precio = @Precio WHERE IdProducto = @IdProducto");
+                datos.setearConsulta("UPDATE Producto SET Precio = @Precio WHERE IdProducto = @IdProducto");
 
                 datos.setearParametro("@Precio", precioNuevo);
                 datos.setearParametro("@IdProducto", idProducto);
@@ -205,10 +201,9 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "SELECT IdProducto, Nombre " +
-                    "FROM Producto " +
-                    "WHERE Proveedor = @IdProveedor AND Activo = 1");
+                datos.setearConsulta("SELECT IdProducto, Nombre " +
+                                     "FROM Producto " +
+                                     "WHERE Proveedor = @IdProveedor AND Activo = 1");
 
                 datos.setearParametro("@IdProveedor", idProveedor);
                 datos.realizarLectura();
@@ -228,7 +223,5 @@ namespace Negocio
 
             return lista;
         }
-
-
     }
 }

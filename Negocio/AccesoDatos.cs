@@ -29,12 +29,6 @@ namespace Negocio
             comando.CommandText = consulta;
         }
 
-        public void setearSp(string sp)
-        {
-            comando.CommandType = System.Data.CommandType.StoredProcedure;
-            comando.CommandText = sp;
-        }
-
         public void setearParametro(string nombre, object valor)
         {
             comando.Parameters.AddWithValue(nombre, valor);
@@ -82,7 +76,6 @@ namespace Negocio
                 lector.Close();
             conexion.Close();
         }
-
     }
 }
 

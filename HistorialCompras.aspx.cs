@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace TPC_ComercioRudo_CandelaP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Usuario"] == null || Session["IdVendedor"] == null)
+            if (Session["TipoUsuario"] == null)
             {
                 Response.Redirect("Inicio.aspx");
                 return;
@@ -20,17 +21,38 @@ namespace TPC_ComercioRudo_CandelaP
 
             if (!IsPostBack)
             {
-                int idVendedor = Convert.ToInt32(Session["IdVendedor"]);
-
-                NegocioCompra negocio = new NegocioCompra();
-                dgvCompras.DataSource = negocio.listarPorVendedor(idVendedor);
-                dgvCompras.DataBind();
+                configurarVistaPorRol();
             }
         }
 
+        private void configurarVistaPorRol()
+        {
+            Usuario usuario = (Usuario)Session["Usuario"];
+            NegocioCompra negocio = new NegocioCompra();
+
+            if (usuario.idTipoUsuario == 1)
+            {
+                dgvCompras.DataSource = negocio.listar();
+                dgvCompras.DataBind();
+
+                ViewState["volver"] = "PanelAdmin.aspx";
+            }
+            else
+            {
+                if (usuario.idTipoUsuario == 2)
+                {
+                    int idVendedor = Convert.ToInt32(Session["IdVendedor"]);
+
+                dgvCompras.DataSource = negocio.listarPorVendedor(idVendedor);
+                dgvCompras.DataBind();
+
+                ViewState["volver"] = "PanelVendedor.aspx";
+                }
+            }
+        }
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("PanelVendedor.aspx");
+            Response.Redirect(ViewState["volver"].ToString());
         }
     }
 }

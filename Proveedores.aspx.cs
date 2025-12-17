@@ -9,6 +9,18 @@ namespace TPC_ComercioRudo_CandelaP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["TipoUsuario"] == null)
+            {
+                Response.Redirect("Inicio.aspx");
+                return;
+            }
+
+            if ((int)Session["TipoUsuario"] != 1)
+            {
+                Response.Redirect("Inicio.aspx");
+                return;
+            }
+
             if (!IsPostBack)
             {
                 cargarGrilla();

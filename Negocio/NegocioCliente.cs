@@ -12,16 +12,15 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "INSERT INTO Cliente (Nombre, Apellido, DNI, Telefono, Email, Direccion, Activo) " +
-                    "VALUES (@n, @a, @dni, @t, @e, @d, 1)");
+                datos.setearConsulta("INSERT INTO Cliente (Nombre, Apellido, DNI, Telefono, Email, Direccion, Activo) " +
+                                     "VALUES (@n, @a, @dni, @t, @e, @d, 1)");
 
-                datos.setearParametro("@n", c.Nombre);
-                datos.setearParametro("@a", c.Apellido);
+                datos.setearParametro("@n", c.nombre);
+                datos.setearParametro("@a", c.apellido);
                 datos.setearParametro("@dni", c.DNI);
-                datos.setearParametro("@t", c.Telefono);
-                datos.setearParametro("@e", c.Email);
-                datos.setearParametro("@d", c.Direccion);
+                datos.setearParametro("@t", c.telefono);
+                datos.setearParametro("@e", c.email);
+                datos.setearParametro("@d", c.direccion);
 
                 datos.realizarAccion();
             }
@@ -41,17 +40,16 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "UPDATE Cliente SET Nombre=@n, Apellido=@a, DNI=@dni, " +
-                    "Telefono=@t, Email=@e, Direccion=@d WHERE IdCliente=@id");
+                datos.setearConsulta("UPDATE Cliente SET Nombre=@n, Apellido=@a, DNI=@dni, " +
+                                     "Telefono=@t, Email=@e, Direccion=@d WHERE IdCliente=@id");
 
-                datos.setearParametro("@n", c.Nombre);
-                datos.setearParametro("@a", c.Apellido);
+                datos.setearParametro("@n", c.nombre);
+                datos.setearParametro("@a", c.apellido);
                 datos.setearParametro("@dni", c.DNI);
-                datos.setearParametro("@t", c.Telefono);
-                datos.setearParametro("@e", c.Email);
-                datos.setearParametro("@d", c.Direccion);
-                datos.setearParametro("@id", c.IdCliente);
+                datos.setearParametro("@t", c.telefono);
+                datos.setearParametro("@e", c.email);
+                datos.setearParametro("@d", c.direccion);
+                datos.setearParametro("@id", c.id);
 
                 datos.realizarAccion();
             }
@@ -71,8 +69,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "UPDATE Cliente SET Activo = 0 WHERE IdCliente = @id");
+                datos.setearConsulta("UPDATE Cliente SET Activo = 0 WHERE IdCliente = @id");
 
                 datos.setearParametro("@id", id);
                 datos.realizarAccion();
@@ -100,14 +97,14 @@ namespace Negocio
                 while (datos.Lector.Read())
                 {
                     Cliente c = new Cliente();
-                    c.IdCliente = (int)datos.Lector["IdCliente"];
-                    c.Nombre = datos.Lector["Nombre"].ToString();
-                    c.Apellido = datos.Lector["Apellido"].ToString();
+                    c.id = (int)datos.Lector["IdCliente"];
+                    c.nombre = datos.Lector["Nombre"].ToString();
+                    c.apellido = datos.Lector["Apellido"].ToString();
                     c.DNI = datos.Lector["DNI"].ToString();
-                    c.Telefono = datos.Lector["Telefono"].ToString();
-                    c.Email = datos.Lector["Email"].ToString();
-                    c.Direccion = datos.Lector["Direccion"].ToString();
-                    c.Activo = (int)datos.Lector["Activo"];
+                    c.telefono = datos.Lector["Telefono"].ToString();
+                    c.email = datos.Lector["Email"].ToString();
+                    c.direccion = datos.Lector["Direccion"].ToString();
+                    c.activo = (int)datos.Lector["Activo"];
 
                     lista.Add(c);
                 }
@@ -137,14 +134,14 @@ namespace Negocio
 
                 if (datos.Lector.Read())
                 {
-                    c.IdCliente = (int)datos.Lector["IdCliente"];
-                    c.Nombre = datos.Lector["Nombre"].ToString();
-                    c.Apellido = datos.Lector["Apellido"].ToString();
+                    c.id = (int)datos.Lector["IdCliente"];
+                    c.nombre = datos.Lector["Nombre"].ToString();
+                    c.apellido = datos.Lector["Apellido"].ToString();
                     c.DNI = datos.Lector["DNI"].ToString();
-                    c.Telefono = datos.Lector["Telefono"].ToString();
-                    c.Email = datos.Lector["Email"].ToString();
-                    c.Direccion = datos.Lector["Direccion"].ToString();
-                    c.Activo = (int)datos.Lector["Activo"];
+                    c.telefono = datos.Lector["Telefono"].ToString();
+                    c.email = datos.Lector["Email"].ToString();
+                    c.direccion = datos.Lector["Direccion"].ToString();
+                    c.activo = (int)datos.Lector["Activo"];
                 }
 
                 return c;

@@ -14,9 +14,8 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta(
-                    "SELECT IdVendedor, Nombre, Apellido " +
-                    "FROM Vendedor WHERE IdUsuario = @IdUsuario");
+                datos.setearConsulta("SELECT IdVendedor, Nombre, Apellido " +
+                                     "FROM Vendedor WHERE IdUsuario = @IdUsuario");
 
                 datos.setearParametro("@IdUsuario", idUsuario);
                 datos.realizarLectura();
@@ -38,7 +37,5 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-
-
     }
 }

@@ -24,11 +24,11 @@ namespace TPC_ComercioRudo_CandelaP
                 Session["Usuario"] = usuario;
                 Session["TipoUsuario"] = usuario.idTipoUsuario;
 
-                if (usuario.idTipoUsuario == 1) // administrador
+                if (usuario.idTipoUsuario == 1)
                 {
                     Response.Redirect("PanelAdmin.aspx");
                 }
-                else // vendedor
+                else
                 {
                     NegocioVendedor negocioVendedor = new NegocioVendedor();
                     Vendedor vendedor = negocioVendedor.obtenerPorUsuario(usuario.id);

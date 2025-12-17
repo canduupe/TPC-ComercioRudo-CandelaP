@@ -103,11 +103,11 @@ namespace TPC_ComercioRudo_CandelaP
             p.proveedor = new Proveedor();
             p.proveedor.id = int.Parse(ddlProveedor.SelectedValue);
 
-            p.Marca = new Marca();
-            p.Marca.id = int.Parse(ddlMarca.SelectedValue);
+            p.marca = new Marca();
+            p.marca.id = int.Parse(ddlMarca.SelectedValue);
 
-            p.Categoria = new Categoria();
-            p.Categoria.id = int.Parse(ddlCategoria.SelectedValue);
+            p.categoria = new Categoria();
+            p.categoria.id = int.Parse(ddlCategoria.SelectedValue);
         
             p.activo = 1;
 
@@ -143,8 +143,8 @@ namespace TPC_ComercioRudo_CandelaP
                 txtNombre.Text = p.nombre;
                 txtDescripcion.Text = p.descripcion.ToString();
                 ddlProveedor.SelectedValue = p.proveedor.id.ToString();
-                ddlMarca.SelectedValue = p.Marca.id.ToString();
-                ddlCategoria.SelectedValue = p.Categoria.id.ToString();
+                ddlMarca.SelectedValue = p.marca.id.ToString();
+                ddlCategoria.SelectedValue = p.categoria.id.ToString();
                 txtPrecio.Text = p.precio.ToString();
                 txtStockActual.Text = p.stockActual.ToString();
                 txtStockMinimo.Text = p.stockMinimo.ToString();

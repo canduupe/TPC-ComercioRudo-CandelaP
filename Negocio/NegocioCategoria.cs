@@ -15,9 +15,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "INSERT INTO Categoria (Nombre) VALUES (@Nombre)");
-
+                datos.setearConsulta("INSERT INTO Categoria (Nombre) VALUES (@Nombre)");
                 datos.setearParametro("@Nombre", nueva.nombre);
 
                 datos.realizarAccion();
@@ -38,9 +36,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "UPDATE Categoria SET Nombre = @Nombre WHERE IdCategoria = @Id");
-
+                datos.setearConsulta("UPDATE Categoria SET Nombre = @Nombre WHERE IdCategoria = @Id");
                 datos.setearParametro("@Nombre", cate.nombre);
                 datos.setearParametro("@Id", cate.id);
 
@@ -62,9 +58,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "DELETE FROM Categoria WHERE IdCategoria = @Id");
-
+                datos.setearConsulta("DELETE FROM Categoria WHERE IdCategoria = @Id");
                 datos.setearParametro("@Id", id);
 
                 datos.realizarAccion();
@@ -87,6 +81,7 @@ namespace Negocio
             try
             {
                 datos.setearConsulta("SELECT IdCategoria, Nombre FROM Categoria");
+               
                 datos.realizarLectura();
 
                 while (datos.Lector.Read())

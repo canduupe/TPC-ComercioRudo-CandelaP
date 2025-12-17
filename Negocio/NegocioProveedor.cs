@@ -12,9 +12,8 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "INSERT INTO Proveedor (Nombre, Marca, Categoria, Activo) " +
-                    "VALUES (@Nombre, @Marca, @Categoria, 1)");
+                datos.setearConsulta("INSERT INTO Proveedor (Nombre, Marca, Categoria, Activo) " +
+                                     "VALUES (@Nombre, @Marca, @Categoria, 1)");
 
                 datos.setearParametro("@Nombre", proveedor.nombre);
                 datos.setearParametro("@Marca", proveedor.marca.id);
@@ -38,12 +37,11 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "UPDATE Proveedor SET " +
-                    "Nombre = @Nombre, " +
-                    "Marca = @Marca, " +
-                    "Categoria = @Categoria " +
-                    "WHERE IdProveedor = @Id");
+                datos.setearConsulta("UPDATE Proveedor SET " +
+                                     "Nombre = @Nombre, " +
+                                     "Marca = @Marca, " +
+                                     "Categoria = @Categoria " +
+                                     "WHERE IdProveedor = @Id");
 
                 datos.setearParametro("@Nombre", proveedor.nombre);
                 datos.setearParametro("@Marca", proveedor.marca.id);
@@ -68,8 +66,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "DELETE FROM Proveedor WHERE IdProveedor = @Id");
+                datos.setearConsulta("DELETE FROM Proveedor WHERE IdProveedor = @Id");
 
                 datos.setearParametro("@Id", id);
 

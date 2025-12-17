@@ -93,9 +93,10 @@ Create table Compra(
 IdCompra int primary key identity (1,1),
 IdProveedor int null references Proveedor(IdProveedor),
 IdProducto int null references Producto(IdProducto),
+IdVendedor int null references Vendedor(IdVendedor),
 Precio Money not null,
 Cantidad int not null,
-StockActual int not null
+Ganancia decimal not null
 )
 
 Create table Venta(
@@ -187,7 +188,7 @@ VALUES
 ('Carla', 'Suarez', '29888777', '5555555555', 'carla@mail.com', 'Mitre 654', 1);
 
 
-select * from TipoUsuario
+select * from Usuarios
 
 select IdProducto, Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo, Activo from Producto
 

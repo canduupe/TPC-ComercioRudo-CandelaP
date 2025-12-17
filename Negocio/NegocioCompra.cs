@@ -17,9 +17,8 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-      "INSERT INTO Compra (IdProveedor, IdProducto, IdVendedor, Precio, Cantidad, Ganancia) " +
-      "VALUES (@IdProveedor, @IdProducto, @IdVendedor, @Precio, @Cantidad, @Ganancia)");
+                datos.setearConsulta("INSERT INTO Compra (IdProveedor, IdProducto, IdVendedor, Precio, Cantidad, Ganancia) " +
+                                     "VALUES (@IdProveedor, @IdProducto, @IdVendedor, @Precio, @Cantidad, @Ganancia)");
 
                 datos.setearParametro("@IdProveedor", compra.proveedor.id);
                 datos.setearParametro("@IdProducto", compra.producto.id);

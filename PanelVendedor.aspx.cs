@@ -11,6 +11,17 @@ namespace TPC_ComercioRudo_CandelaP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["TipoUsuario"] == null)
+            {
+                Response.Redirect("Inicio.aspx");
+                return;
+            }
+
+            if ((int)Session["TipoUsuario"] != 2)
+            {
+                Response.Redirect("Inicio.aspx");
+                return;
+            }
         }
 
         protected void btnVenta_Click(object sender, EventArgs e)

@@ -105,7 +105,7 @@
                                 <p class="card-text">Ver compras realizadas</p>
                                 <asp:Button runat="server" Text="Ver"
                                     CssClass="btn btn-success"
-                                    PostBackUrl="~/Compras.aspx" />
+                                    PostBackUrl="~/HistorialCompras.aspx" />
                             </div>
                         </div>
                     </div>

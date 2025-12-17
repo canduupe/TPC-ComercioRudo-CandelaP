@@ -48,8 +48,6 @@ namespace TPC_ComercioRudo_CandelaP
             }
         }
 
-
-
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             limpiarFormulario();
@@ -73,13 +71,13 @@ namespace TPC_ComercioRudo_CandelaP
             {
                 Cliente c = negocio.obtenerPorID(id);
 
-                hfIdCliente.Value = c.IdCliente.ToString();
-                txtNombre.Text = c.Nombre;
-                txtApellido.Text = c.Apellido;
+                hfIdCliente.Value = c.id.ToString();
+                txtNombre.Text = c.nombre;
+                txtApellido.Text = c.apellido;
                 txtDNI.Text = c.DNI;
-                txtTelefono.Text = c.Telefono;
-                txtEmail.Text = c.Email;
-                txtDireccion.Text = c.Direccion;
+                txtTelefono.Text = c.telefono;
+                txtEmail.Text = c.email;
+                txtDireccion.Text = c.direccion;
 
                 pnlFormulario.Visible = true;
             }
@@ -89,12 +87,12 @@ namespace TPC_ComercioRudo_CandelaP
             Cliente cliente = new Cliente();
             NegocioCliente negocio = new NegocioCliente();
 
-            cliente.Nombre = txtNombre.Text;
-            cliente.Apellido = txtApellido.Text;
+            cliente.nombre = txtNombre.Text;
+            cliente.apellido = txtApellido.Text;
             cliente.DNI = txtDNI.Text;
-            cliente.Telefono = txtTelefono.Text;
-            cliente.Email = txtEmail.Text;
-            cliente.Direccion = txtDireccion.Text;
+            cliente.telefono = txtTelefono.Text;
+            cliente.email = txtEmail.Text;
+            cliente.direccion = txtDireccion.Text;
 
             if (hfIdCliente.Value == "")
             {
@@ -102,7 +100,7 @@ namespace TPC_ComercioRudo_CandelaP
             }
             else
             {
-                cliente.IdCliente = int.Parse(hfIdCliente.Value);
+                cliente.id = int.Parse(hfIdCliente.Value);
                 negocio.modificar(cliente);
             }
 

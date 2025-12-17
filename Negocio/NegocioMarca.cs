@@ -12,8 +12,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "INSERT INTO Marca (Nombre) VALUES (@Nombre)");
+                datos.setearConsulta("INSERT INTO Marca (Nombre) VALUES (@Nombre)");
 
                 datos.setearParametro("@Nombre", nueva.nombre);
 
@@ -35,8 +34,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "UPDATE Marca SET Nombre = @Nombre WHERE IdMarca = @Id");
+                datos.setearConsulta("UPDATE Marca SET Nombre = @Nombre WHERE IdMarca = @Id");
 
                 datos.setearParametro("@Nombre", marca.nombre);
                 datos.setearParametro("@Id", marca.id);
@@ -59,8 +57,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(
-                    "DELETE FROM Marca WHERE IdMarca = @Id");
+                datos.setearConsulta("DELETE FROM Marca WHERE IdMarca = @Id");
 
                 datos.setearParametro("@Id", id);
 
