@@ -30,6 +30,21 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 shadow-sm text-center">
                             <div class="card-body">
+                                <h5 class="card-title">Nueva Compra</h5>
+                                <p class="card-text">Registrar una compra</p>
+                                <asp:Button
+                                    ID="btnCompra"
+                                    runat="server"
+                                    Text="Ir"
+                                    CssClass="btn btn-primary"
+                                    OnClick="btnCompra_Click" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="card-body">
                                 <h5 class="card-title">Clientes</h5>
                                 <p class="card-text">Ver y buscar clientes</p>
                                 <asp:Button

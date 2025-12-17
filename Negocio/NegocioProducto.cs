@@ -198,6 +198,37 @@ namespace Negocio
             }
         }
 
+        public List<Producto> listarPorProveedor(int idProveedor)
+        {
+            List<Producto> lista = new List<Producto>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta(
+                    "SELECT IdProducto, Nombre " +
+                    "FROM Producto " +
+                    "WHERE Proveedor = @IdProveedor AND Activo = 1");
+
+                datos.setearParametro("@IdProveedor", idProveedor);
+                datos.realizarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Producto p = new Producto();
+                    p.id = (int)datos.Lector["IdProducto"];
+                    p.nombre = (string)datos.Lector["Nombre"];
+                    lista.Add(p);
+                }
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+            return lista;
+        }
+
 
     }
 }

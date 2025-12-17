@@ -18,6 +18,7 @@ namespace TPC_ComercioRudo_CandelaP
             Response.Redirect("Ventas.aspx");
         }
 
+
         protected void btnClientes_Click(object sender, EventArgs e)
         {
             Response.Redirect("Clientes.aspx");
@@ -31,6 +32,11 @@ namespace TPC_ComercioRudo_CandelaP
         protected void btnMisVentas_Click(object sender, EventArgs e)
         {
             Response.Redirect("MisVentas.aspx");
+        }
+
+        protected void btnCompra_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Compras.aspx");
         }
     }
 }

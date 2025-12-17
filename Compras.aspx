@@ -10,7 +10,9 @@
             <asp:DropDownList
                 ID="ddlProveedor"
                 runat="server"
-                CssClass="form-control mb-2">
+                CssClass="form-control mb-2"
+                AutoPostBack="true"
+                OnSelectedIndexChanged="ddlProveedor_SelectedIndexChanged">
             </asp:DropDownList>
 
             <label>Producto</label>
@@ -19,6 +21,7 @@
                 runat="server"
                 CssClass="form-control mb-2">
             </asp:DropDownList>
+
 
             <label>Cantidad comprada</label>
             <asp:TextBox
@@ -46,6 +49,13 @@
                 OnClick="btnGuardar_Click" />
         </div>
     </div>
-
+       <div>
+       <asp:Button
+           ID="btnVolver"
+           runat="server"
+           Text="Volver"
+           CssClass="btn btn-outline-secondary me-2"
+           OnClick="btnVolver_Click" />
+   </div>
 </asp:Content>
 
