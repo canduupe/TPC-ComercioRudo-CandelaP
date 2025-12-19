@@ -2,14 +2,12 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace TPC_ComercioRudo_CandelaP
 {
-    public partial class AgregarVenta : System.Web.UI.Page
+    public partial class AgregarVenta : Page
     {
         private List<DetalleVenta> DetallesVenta
         {
@@ -20,20 +18,11 @@ namespace TPC_ComercioRudo_CandelaP
 
                 return (List<DetalleVenta>)Session["DetallesVenta"];
             }
-            set
-            {
-                Session["DetallesVenta"] = value;
-            }
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["TipoUsuario"] == null)
-            {
-                Response.Redirect("Inicio.aspx");
-                return;
-            }
-
-            if ((int)Session["TipoUsuario"] != 2)
+            if (Session["TipoUsuario"] == null || (int)Session["TipoUsuario"] != 2)
             {
                 Response.Redirect("Inicio.aspx");
                 return;
@@ -44,7 +33,14 @@ namespace TPC_ComercioRudo_CandelaP
                 cargarVentas();
                 cargarClientes();
                 cargarProductos();
+                ocultarPaneles();
             }
+        }
+
+        private void ocultarPaneles()
+        {
+            pnlVenta.Visible = false;
+            pnlDetalleVenta.Visible = false;
         }
 
         private void cargarVentas()
@@ -58,9 +54,10 @@ namespace TPC_ComercioRudo_CandelaP
         {
             NegocioCliente negocio = new NegocioCliente();
             ddlClientes.DataSource = negocio.listar();
-            ddlClientes.DataTextField = "apellido";
+            ddlClientes.DataTextField = "dni";
             ddlClientes.DataValueField = "id";
             ddlClientes.DataBind();
+            ddlClientes.Items.Insert(0, new ListItem("Seleccione un cliente", "0"));
         }
 
         private void cargarProductos()
@@ -70,114 +67,138 @@ namespace TPC_ComercioRudo_CandelaP
             ddlProductos.DataTextField = "nombre";
             ddlProductos.DataValueField = "id";
             ddlProductos.DataBind();
+            ddlProductos.Items.Insert(0, new ListItem("Seleccione un producto", "0"));
         }
 
         protected void btnNuevaVenta_Click(object sender, EventArgs e)
         {
+            ocultarPaneles();
             pnlVenta.Visible = true;
-            DetallesVenta = new List<DetalleVenta>();
+
+            Session.Remove("DetallesVenta");
             dgvDetalle.DataSource = null;
             dgvDetalle.DataBind();
+
+            limpiarFormulario();
         }
 
         protected void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCantidad.Text))
-                return;
+            dgvDetalle.DataSource = DetallesVenta;
+            dgvDetalle.DataBind();
+            limpiarFormulario();
 
-            if (!int.TryParse(txtCantidad.Text, out int cantidad))
+            if (!int.TryParse(txtCantidad.Text, out int cantidad) || cantidad <= 0)
+            {
+                mostrarError("Ingrese una cantidad válida.");
                 return;
-
-            if (cantidad <= 0)
-                return;
+            }
 
             int idProducto = int.Parse(ddlProductos.SelectedValue);
-
-            NegocioProducto negocioProducto = new NegocioProducto();
-            Producto producto = negocioProducto.obtenerPorId(idProducto);
+            Producto producto = new NegocioProducto().obtenerPorId(idProducto);
 
             if (producto == null)
+            {
+                mostrarError("Producto no encontrado.");
                 return;
+            }
 
             if (producto.stockActual < cantidad)
+            {
+                mostrarError("Stock insuficiente.");
                 return;
+            }
 
-            DetalleVenta detalle = new DetalleVenta
+            DetallesVenta.Add(new DetalleVenta
             {
                 producto = producto,
                 cantidad = cantidad,
                 precioUnitario = producto.precio,
                 subtotal = cantidad * producto.precio
-            };
-
-            DetallesVenta.Add(detalle);
+            });
 
             dgvDetalle.DataSource = DetallesVenta;
             dgvDetalle.DataBind();
 
             txtCantidad.Text = "";
-            ddlClientes.SelectedIndex = 0;
             ddlProductos.SelectedIndex = 0;
+            mostrarExito("Producto agregado.");
         }
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
-            if (ddlClientes.SelectedIndex < 0)
-                return;
-
-            if (DetallesVenta == null || DetallesVenta.Count == 0)
-                return;
-
-            if (Session["IdVendedor"] == null)
+            if (ddlClientes.SelectedValue == "0" || DetallesVenta.Count == 0 || Session["IdVendedor"] == null)
                 return;
 
             decimal total = 0;
-            foreach (var det in DetallesVenta)
+            foreach (var d in DetallesVenta)
+                total += d.subtotal;
+
+            Venta venta = new Venta
             {
-                total += det.subtotal;
-            }
+                cliente = new Cliente { id = int.Parse(ddlClientes.SelectedValue) },
+                vendedor = new Vendedor { id = (int)Session["IdVendedor"] },
+                Detalles = DetallesVenta,
+                total = total
+            };
 
-            Venta venta = new Venta();
-            venta.cliente = new Cliente();
-            venta.cliente.id = int.Parse(ddlClientes.SelectedValue);
+            new NegocioVenta().RegistrarVenta(venta);
 
-            venta.vendedor = new Vendedor();
-            venta.vendedor.id = (int)Session["IdVendedor"];
-
-            venta.Detalles = DetallesVenta;
-            venta.total = total;
-
-            NegocioVenta negocioVenta = new NegocioVenta();
-            negocioVenta.RegistrarVenta(venta);
-
-            pnlVenta.Visible = false;
             Session.Remove("DetallesVenta");
-
+            ocultarPaneles();
             cargarVentas();
         }
+
+        protected void dgvVentas_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "VerDetalle")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                int idVenta = Convert.ToInt32(dgvVentas.DataKeys[index].Value);
+                mostrarDetalleVenta(idVenta);
+            }
+        }
+
         private void mostrarDetalleVenta(int idVenta)
         {
-            NegocioVenta negocioVenta = new NegocioVenta();
-            List<DetalleVenta> detalles = negocioVenta.listarDetalle(idVenta);
+            ocultarPaneles();
 
-            pnlVenta.Visible = true;
+            dgvDetalleVenta.DataSource = new NegocioVenta().listarDetalle(idVenta);
+            dgvDetalleVenta.DataBind();
 
-            dgvDetalle.DataSource = detalles;
-            dgvDetalle.DataBind();
-
-            btnConfirmar.Visible = false;
-            btnAgregarProducto.Visible = false;
+            pnlDetalleVenta.Visible = true;
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            pnlVenta.Visible = false;
-            DetallesVenta = null;
+            ocultarPaneles();
+            Session.Remove("DetallesVenta");
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("PanelVendedor.aspx");
+        }
+
+        private void limpiarFormulario()
+        {
+            txtCantidad.Text = "";
+            ddlClientes.SelectedIndex = 0;
+            ddlProductos.SelectedIndex = 0;
+        }
+
+        private void mostrarError(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-danger";
+            lblMensaje.Visible = true;
+        }
+
+        private void mostrarExito(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-success";
+            lblMensaje.Visible = true;
         }
     }
 }

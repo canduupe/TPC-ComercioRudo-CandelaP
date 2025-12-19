@@ -56,7 +56,7 @@
                                 <h5 class="card-title">Productos</h5>
                                 <p class="card-text">Administrar productos</p>
                                 <asp:Button runat="server" Text="Gestionar"
-                                    CssClass="btn btn-secondary"
+                                    CssClass="btn btn-primary"
                                     PostBackUrl="~/Productos.aspx" />
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                                 <h5 class="card-title">Marcas</h5>
                                 <p class="card-text">Administrar marcas</p>
                                 <asp:Button runat="server" Text="Gestionar"
-                                    CssClass="btn btn-secondary"
+                                    CssClass="btn btn-primary"
                                     PostBackUrl="~/Marcas.aspx" />
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                                 <h5 class="card-title">Categorías</h5>
                                 <p class="card-text">Administrar categorías</p>
                                 <asp:Button runat="server" Text="Gestionar"
-                                    CssClass="btn btn-secondary"
+                                    CssClass="btn btn-primary"
                                     PostBackUrl="~/Categorias.aspx" />
                             </div>
                         </div>

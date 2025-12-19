@@ -51,7 +51,7 @@
                                     ID="btnClientes"
                                     runat="server"
                                     Text="Ir"
-                                    CssClass="btn btn-success"
+                                    CssClass="btn btn-primary"
                                     OnClick="btnClientes_Click" />
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                                     ID="btnProductos"
                                     runat="server"
                                     Text="Ir"
-                                    CssClass="btn btn-info"
+                                    CssClass="btn btn-primary"
                                     OnClick="btnProductos_Click" />
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                                     ID="btnMisCompras"
                                     runat="server"
                                     Text="Ir"
-                                    CssClass="btn btn-warning"
+                                    CssClass="btn btn-primary"
                                     OnClick="btnMisCompras_Click" />
                             </div>
                         </div>
