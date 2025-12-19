@@ -3,28 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\historialcompras.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:historialcompras.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\inicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:inicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\historialcompras.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:historialcompras.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0169013A-C321-4F87-A2FC-945B86FADE6B}|Negocio\\Negocio.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\negocio\\negocioproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0169013A-C321-4F87-A2FC-945B86FADE6B}|Negocio\\Negocio.csproj|solutionrelative:negocio\\negocioproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\clientes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:clientes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0169013A-C321-4F87-A2FC-945B86FADE6B}|Negocio\\Negocio.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\negocio\\negocioventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0169013A-C321-4F87-A2FC-945B86FADE6B}|Negocio\\Negocio.csproj|solutionrelative:negocio\\negocioventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\categorias.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:categorias.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\agregarventa.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:agregarventa.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\categorias.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:categorias.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\clientes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:clientes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\agregarventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:agregarventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,84 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Inicio.aspx",
+              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Inicio.aspx",
+              "RelativeDocumentMoniker": "Inicio.aspx",
+              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Inicio.aspx",
+              "RelativeToolTip": "Inicio.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-12-19T01:53:13.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Categorias.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Categorias.aspx.cs",
-              "RelativeDocumentMoniker": "Categorias.aspx.cs",
-              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Categorias.aspx.cs",
-              "RelativeToolTip": "Categorias.aspx.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AgregarVenta.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\AgregarVenta.aspx.cs",
+              "RelativeDocumentMoniker": "AgregarVenta.aspx.cs",
+              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\AgregarVenta.aspx.cs",
+              "RelativeToolTip": "AgregarVenta.aspx.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAAAJAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T21:52:38.432Z",
+              "WhenOpened": "2025-12-19T01:44:39.018Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Categorias.aspx",
-              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Categorias.aspx",
-              "RelativeDocumentMoniker": "Categorias.aspx",
-              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Categorias.aspx",
-              "RelativeToolTip": "Categorias.aspx",
+              "Title": "AgregarVenta.aspx",
+              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\AgregarVenta.aspx",
+              "RelativeDocumentMoniker": "AgregarVenta.aspx",
+              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\AgregarVenta.aspx",
+              "RelativeToolTip": "AgregarVenta.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-12-17T21:52:34.33Z",
+              "WhenOpened": "2025-12-19T01:44:12.149Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Clientes.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Clientes.aspx.cs",
-              "RelativeDocumentMoniker": "Clientes.aspx.cs",
-              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Clientes.aspx.cs",
-              "RelativeToolTip": "Clientes.aspx.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAuwIMAAAABAAAAAAAAAA==",
+              "Title": "NegocioVenta.cs",
+              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Negocio\\NegocioVenta.cs",
+              "RelativeDocumentMoniker": "Negocio\\NegocioVenta.cs",
+              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Negocio\\NegocioVenta.cs*",
+              "RelativeToolTip": "Negocio\\NegocioVenta.cs*",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAowGIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T21:52:14.051Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Clientes.aspx",
-              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Clientes.aspx",
-              "RelativeDocumentMoniker": "Clientes.aspx",
-              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Clientes.aspx",
-              "RelativeToolTip": "Clientes.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-12-17T21:52:11.433Z",
+              "WhenOpened": "2025-12-19T01:43:33.679Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "HistorialCompras.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\HistorialCompras.aspx.cs",
-              "RelativeDocumentMoniker": "HistorialCompras.aspx.cs",
-              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\HistorialCompras.aspx.cs*",
-              "RelativeToolTip": "HistorialCompras.aspx.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAABAAAAAAAAAA==",
+              "Title": "NegocioProducto.cs",
+              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Negocio\\NegocioProducto.cs",
+              "RelativeDocumentMoniker": "Negocio\\NegocioProducto.cs",
+              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Negocio\\NegocioProducto.cs",
+              "RelativeToolTip": "Negocio\\NegocioProducto.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T21:49:13.58Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HistorialCompras.aspx",
-              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\HistorialCompras.aspx",
-              "RelativeDocumentMoniker": "HistorialCompras.aspx",
-              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\HistorialCompras.aspx",
-              "RelativeToolTip": "HistorialCompras.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-12-17T21:49:10.878Z",
+              "WhenOpened": "2025-12-19T01:43:25.075Z",
               "EditorCaption": ""
             }
           ]

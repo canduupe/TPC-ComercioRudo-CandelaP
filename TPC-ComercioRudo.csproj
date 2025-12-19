@@ -99,6 +99,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AgregarVenta.aspx" />
     <Content Include="Categorias.aspx" />
     <Content Include="Clientes.aspx" />
     <Content Include="Compras.aspx" />
@@ -191,6 +192,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarVenta.aspx.cs">
+      <DependentUpon>AgregarVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarVenta.aspx.designer.cs">
+      <DependentUpon>AgregarVenta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Categorias.aspx.cs">

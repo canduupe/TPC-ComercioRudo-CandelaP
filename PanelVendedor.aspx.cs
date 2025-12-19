@@ -26,7 +26,7 @@ namespace TPC_ComercioRudo_CandelaP
 
         protected void btnVenta_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Ventas.aspx");
+            Response.Redirect("AgregarVenta.aspx");
         }
 
 

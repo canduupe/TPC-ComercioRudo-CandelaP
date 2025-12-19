@@ -223,5 +223,60 @@ namespace Negocio
 
             return lista;
         }
+
+        public Producto obtenerPorId(int id)
+        {
+            Producto aux = null;
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta(@"SELECT P.IdProducto, P.Nombre, P.Descripcion, P.Precio,
+                             P.StockActual, P.StockMinimo, P.Activo,
+                             PR.IdProveedor, PR.Nombre AS NombreProveedor,
+                             M.IdMarca, M.Nombre AS NombreMarca,
+                             C.IdCategoria, C.Nombre AS NombreCategoria
+                             FROM Producto P
+                             LEFT JOIN Proveedor PR ON PR.IdProveedor = P.Proveedor
+                             INNER JOIN Marca M ON M.IdMarca = P.Marca
+                             INNER JOIN Categoria C ON C.IdCategoria = P.Categoria
+                             WHERE P.IdProducto = @Id");
+
+                datos.setearParametro("@Id", id);
+                datos.realizarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    aux = new Producto();
+
+                    aux.id = (int)datos.Lector["IdProducto"];
+                    aux.nombre = (string)datos.Lector["Nombre"];
+                    aux.descripcion = (string)datos.Lector["Descripcion"];
+                    aux.precio = (decimal)datos.Lector["Precio"];
+                    aux.stockActual = (int)datos.Lector["StockActual"];
+                    aux.stockMinimo = (int)datos.Lector["StockMinimo"];
+                    aux.activo = (int)datos.Lector["Activo"];
+
+                    aux.proveedor = new Proveedor();
+                    aux.proveedor.id = (int)datos.Lector["IdProveedor"];
+                    aux.proveedor.nombre = (string)datos.Lector["NombreProveedor"];
+
+                    aux.marca = new Marca();
+                    aux.marca.id = (int)datos.Lector["IdMarca"];
+                    aux.marca.nombre = (string)datos.Lector["NombreMarca"];
+
+                    aux.categoria = new Categoria();
+                    aux.categoria.id = (int)datos.Lector["IdCategoria"];
+                    aux.categoria.nombre = (string)datos.Lector["NombreCategoria"];
+                }
+
+                return aux;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
     }
 }

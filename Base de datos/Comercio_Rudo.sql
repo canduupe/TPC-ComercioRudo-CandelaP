@@ -101,48 +101,36 @@ Ganancia decimal not null
 
 Create table Venta(
     IdVenta int primary key identity (1,1),
-    NroFactura int not null,
+    NroFactura varchar(13) not null unique,
     IdCliente int not null,
     IdVendedor int not null,
-    Fecha datetime not null,
+    Fecha datetime not null default getdate(),
     Total money not null,
 
     foreign key (IdCliente) references Cliente(IdCliente),
     foreign key (IdVendedor) references Vendedor(IdVendedor)
 )
 
-Create table FacturaCompra(
-    IdFacturaCompra int primary key identity(1,1),
-    NroFactura varchar(20) not null,
-    Fecha datetime not null,
-    IdProveedor int not null,
-    Total money not null,
-    Activo int not null default 1,
 
-    foreign key (IdProveedor) references Proveedor(IdProveedor)
-)
-
-Create table DetalleFacturaCompra(
-    IdDetalle int primary key identity(1,1),
-    IdFacturaCompra int not null,
+Create table DetalleVenta(
+    IdDetalleVenta int primary key identity(1,1),
+    IdVenta int not null,
     IdProducto int not null,
-    PrecioUnitario money not null,
     Cantidad int not null,
+    PrecioUnitario money not null,
     Subtotal money not null,
 
-    foreign key (IdFacturaCompra) references FacturaCompra(IdFacturaCompra),
+    foreign key (IdVenta) references Venta(IdVenta),
     foreign key (IdProducto) references Producto(IdProducto)
 )
-
-
 
 ---INSERTS
 
 INSERT INTO Usuarios (Usuario, Contraseña, IdTipoUsuario, Activo) VALUES
 ('admin', '1234', 1, 1),
 ('ven', '1234', 2, 1),
-('vend2', '1234', 2, 1),
-('vend3', '1234', 2, 1);
+('ven2', '1234', 2, 1),
+('ven3', '1234', 2, 1);
 
 INSERT INTO Administrador (Nombre, Apellido, IdUsuario, Activo) VALUES
 ('Can', 'Pena', 1, 1);
@@ -187,8 +175,6 @@ VALUES
 ('Diego', 'Molina', '31222333', '4444444444', 'diego@mail.com', 'San Martín 321', 1),
 ('Carla', 'Suarez', '29888777', '5555555555', 'carla@mail.com', 'Mitre 654', 1);
 
+select * from Cliente
 
-select * from Usuarios
-
-select IdProducto, Nombre, Descripcion, Precio, Proveedor, Marca, Categoria, StockActual, StockMinimo, Activo from Producto
 
