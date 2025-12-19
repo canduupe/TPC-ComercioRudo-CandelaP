@@ -8,6 +8,13 @@
         <div class="card shadow-sm">
             <div class="card-body">
 
+                <asp:Label
+                    ID="lblMensaje"
+                    runat="server"
+                    Visible="false"
+                    CssClass="alert"
+                    EnableViewState="false" />
+
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div>
                         <h3 class="mb-0">Vendedores</h3>
@@ -34,7 +41,7 @@
 
                         <asp:ButtonField CommandName="Editar" Text="Editar"
                             ButtonType="Button"
-                            ControlStyle-CssClass="btn btn-warning btn-sm" />
+                            ControlStyle-CssClass="btn btn-primary btn-sm" />
 
                         <asp:ButtonField CommandName="Eliminar" Text="Eliminar"
                             ButtonType="Button"

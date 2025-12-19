@@ -46,22 +46,38 @@ namespace TPC_ComercioRudo_CandelaP
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                mostrarError("El nombre no puede estar vacío");
+                return;
+            }
+
             Categoria cate = new Categoria();
             cate.nombre = txtNombre.Text;
-
-            if (hfIdCategoria.Value == "")
+            try
+            {
+                if (string.IsNullOrEmpty(hfIdCategoria.Value))
             {
                 negocio.agregar(cate);
+                mostrarExito("Categoría agregada correctamente");
             }
             else
             {
                 cate.id = int.Parse(hfIdCategoria.Value);
                 negocio.modificar(cate);
+                mostrarExito("Categoría modificada correctamente");
             }
 
             pnlFormulario.Visible = false;
             cargarGrilla();
         }
+            catch (Exception ex)
+            {
+                mostrarError("Ocurrió un error: " + ex.Message);
+            }
+        }
+
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -85,12 +101,27 @@ namespace TPC_ComercioRudo_CandelaP
             if (e.CommandName == "Eliminar")
             {
                 negocio.eliminar(id);
+                mostrarExito("Categoría eliminada correctamente");
                 cargarGrilla();
             }
         }
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("PanelAdmin.aspx");
+        }
+
+        private void mostrarError(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-danger";
+            lblMensaje.Visible = true;
+        }
+
+        private void mostrarExito(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-success";
+            lblMensaje.Visible = true;
         }
     }
 }

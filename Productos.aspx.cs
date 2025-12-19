@@ -92,6 +92,54 @@ namespace TPC_ComercioRudo_CandelaP
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                mostrarError("El nombre del producto no puede estar vacio");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                mostrarError("La descripcion no puede estar vacia");
+                return;
+            }
+
+            if (!decimal.TryParse(txtPrecio.Text, out decimal precio) || precio <= 0)
+            {
+                mostrarError("Ingrese un precio valido");
+                return;
+            }
+
+            if (!int.TryParse(txtStockActual.Text, out int stockActual) || stockActual <= 0)
+            {
+                mostrarError("Ingrese un stock actual valido");
+                return;
+            }
+
+            if (!int.TryParse(txtStockMinimo.Text, out int stockMinimo) || stockMinimo <= 0)
+            {
+                mostrarError("Ingrese un stock minimo válido");
+                return;
+            }
+
+            if (ddlProveedor.SelectedValue == "0")
+            {
+                mostrarError("Seleccione un proveedor");
+                return;
+            }
+
+            if (ddlMarca.SelectedValue == "0")
+            {
+                mostrarError("Seleccione una marca");
+                return;
+            }
+
+            if (ddlCategoria.SelectedValue == "0")
+            {
+                mostrarError("Seleccione una categoria");
+                return;
+            }
+
             Producto p = new Producto();
 
             p.nombre = txtNombre.Text;
@@ -114,11 +162,13 @@ namespace TPC_ComercioRudo_CandelaP
             if (string.IsNullOrEmpty(hfIdProducto.Value))
             {
                 negocio.agregar(p);
+                mostrarExito("Producto agregado correctamente");
             }
             else
             {
                 p.id = int.Parse(hfIdProducto.Value);
                 negocio.modificar(p);
+                mostrarExito("Producto modificado correctamente");
             }
 
             pnlFormulario.Visible = false;
@@ -133,6 +183,7 @@ namespace TPC_ComercioRudo_CandelaP
             if (e.CommandName == "Eliminar")
             {
                 negocio.eliminar(id);
+                mostrarExito("Producto eliminado correctamente");
             }
 
             else if (e.CommandName == "Editar")
@@ -176,6 +227,19 @@ namespace TPC_ComercioRudo_CandelaP
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect(ViewState["volver"].ToString());
+        }
+        private void mostrarError(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-danger";
+            lblMensaje.Visible = true;
+        }
+
+        private void mostrarExito(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-success";
+            lblMensaje.Visible = true;
         }
     }
 }

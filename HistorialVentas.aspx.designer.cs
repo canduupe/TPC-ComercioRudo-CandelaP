@@ -24,6 +24,24 @@ namespace TPC_ComercioRudo_CandelaP
         protected global::System.Web.UI.WebControls.GridView dgvVentas;
 
         /// <summary>
+        /// Control pnlDetalleVenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlDetalleVenta;
+
+        /// <summary>
+        /// Control dgvDetalleVenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvDetalleVenta;
+
+        /// <summary>
         /// Control btnVolver.
         /// </summary>
         /// <remarks>

@@ -12,9 +12,9 @@
             <h4 class="text-center mb-4">Iniciar sesión</h4>
 
             <div class="mb-3">
-                <asp:Label 
-                    ID="lblUsuario" 
-                    runat="server" 
+                <asp:Label
+                    ID="lblUsuario"
+                    runat="server"
                     Text="Usuario"
                     CssClass="form-label">
                 </asp:Label>

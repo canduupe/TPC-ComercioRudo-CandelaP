@@ -11,8 +11,8 @@
         <asp:BoundField DataField="proveedor.nombre" HeaderText="Proveedor" />
         <asp:BoundField DataField="producto.nombre" HeaderText="Producto" />
         <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
-        <asp:BoundField DataField="precio" HeaderText="Precio Compra" />
-        <asp:BoundField DataField="ganancia" HeaderText="Ganancia" />
+        <asp:BoundField DataField="precio" HeaderText="Precio Compra" DataFormatString="$ {0:N1}" />
+        <asp:BoundField DataField="ganancia" HeaderText="Ganancia" DataFormatString="% {0}" />
     </Columns>
     </asp:GridView>
 

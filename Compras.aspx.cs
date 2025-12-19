@@ -71,28 +71,52 @@ namespace TPC_ComercioRudo_CandelaP
         {
             if (ddlProveedor.SelectedValue == "0")
             {
+                mostrarError("Seleccione un proveedor");
                 return;
             }
 
             if (ddlProducto.SelectedValue == "0")
             {
+                mostrarError("Seleccione un producto");
                 return;
             }
 
-            if (!int.TryParse(txtCantidad.Text, out int cantidad) || cantidad <= 0)
+            if (string.IsNullOrWhiteSpace(txtCantidad.Text))
             {
+                mostrarError("Ingrese la cantidad");
                 return;
             }
 
-            if (!decimal.TryParse(txtPrecio.Text, out decimal precio) || precio <= 0)
+            if (!int.TryParse(txtCantidad.Text, out int cantidad) || cantidad < 0)
             {
+                mostrarError("La cantidad debe ser un numero mayor a cero");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtPrecio.Text))
+            {
+                mostrarError("Ingrese el precio del producto");
+                return;
+            }
+
+            if (!decimal.TryParse(txtPrecio.Text, out decimal precio) || precio < 0)
+            {
+                mostrarError("El precio debe ser un numero mayor a cero");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtGanancia.Text))
+            {
+                mostrarError("Ingrese la ganancia");
                 return;
             }
 
             if (!decimal.TryParse(txtGanancia.Text, out decimal ganancia) || ganancia < 0)
             {
+                mostrarError("La ganancia debe ser un numero positivo");
                 return;
             }
+
             Compra c = new Compra();
 
             c.proveedor = new Proveedor();
@@ -112,6 +136,7 @@ namespace TPC_ComercioRudo_CandelaP
 
             NegocioCompra negocio = new NegocioCompra();
             negocio.agregar(c);
+            mostrarExito("Compra registrada correctamente.");
 
             limpiarFormulario();
         }
@@ -124,10 +149,22 @@ namespace TPC_ComercioRudo_CandelaP
             txtCantidad.Text = "";
             txtGanancia.Text = "";
         }
-
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("PanelVendedor.aspx");
+        }
+        private void mostrarError(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-danger";
+            lblMensaje.Visible = true;
+        }
+
+        private void mostrarExito(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-success";
+            lblMensaje.Visible = true;
         }
     }
 }

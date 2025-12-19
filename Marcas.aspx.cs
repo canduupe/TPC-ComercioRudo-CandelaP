@@ -42,24 +42,38 @@ namespace TPC_ComercioRudo_CandelaP
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                mostrarError("El nombre no puede estar vacío");
+                return;
+            }
+
             Marca marca = new Marca();
             marca.nombre = txtNombre.Text;
-
-            if (hfIdMarca.Value == "")
+            try
             {
-                negocio.agregar(marca);
-            }
-            else
-            {
-                marca.id = int.Parse(hfIdMarca.Value);
-                negocio.modificar(marca);
-            }
+                if (string.IsNullOrEmpty(hfIdMarca.Value))
+                {
+                    negocio.agregar(marca);
+                    mostrarExito("Marca agregada correctamente");
+                }
+                else
+                {
+                    marca.id = int.Parse(hfIdMarca.Value);
+                    negocio.modificar(marca);
+                    mostrarExito("Marca modificada correctamente");
+                }
 
             pnlFormulario.Visible = false;
             cargarGrilla();
         }
+              catch (Exception ex)
+            {
+                mostrarError("Ocurrió un error: " + ex.Message);
+    }
+}
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
+protected void btnCancelar_Click(object sender, EventArgs e)
         {
             pnlFormulario.Visible = false;
         }
@@ -81,12 +95,26 @@ namespace TPC_ComercioRudo_CandelaP
             if (e.CommandName == "Eliminar")
             {
                 negocio.eliminar(id);
+                mostrarExito("Marca eliminada correctamente");
                 cargarGrilla();
             }
         }
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("PanelAdmin.aspx");
+        }
+        private void mostrarError(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-danger";
+            lblMensaje.Visible = true;
+        }
+
+        private void mostrarExito(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-success";
+            lblMensaje.Visible = true;
         }
     }
 }

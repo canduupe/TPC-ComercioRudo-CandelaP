@@ -64,6 +64,7 @@ namespace TPC_ComercioRudo_CandelaP
             if (e.CommandName == "Eliminar")
             {
                 negocio.eliminar(id);
+                mostrarExito("Cliente eliminado correctamente");
                 cargarGrilla();
             }
 
@@ -87,6 +88,52 @@ namespace TPC_ComercioRudo_CandelaP
             Cliente cliente = new Cliente();
             NegocioCliente negocio = new NegocioCliente();
 
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                mostrarError("El nombre es obligatorio");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtApellido.Text))
+            {
+                mostrarError("El apellido es obligatorio");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDNI.Text))
+            {
+                mostrarError("El DNI es obligatorio");
+                return;
+            }
+
+            if (!long.TryParse(txtDNI.Text, out _))
+            {
+                mostrarError("El DNI debe ser numerico");
+                return;
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtTelefono.Text))
+            {
+                if (!long.TryParse(txtTelefono.Text, out _))
+                {
+                    mostrarError("El telefono debe contener solo numeros");
+                    return;
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                try
+                {
+                    var email = new System.Net.Mail.MailAddress(txtEmail.Text);
+                }
+                catch
+                {
+                    mostrarError("El email no tiene un formato valido");
+                    return;
+                }
+            }
+
             cliente.nombre = txtNombre.Text;
             cliente.apellido = txtApellido.Text;
             cliente.DNI = txtDNI.Text;
@@ -94,14 +141,16 @@ namespace TPC_ComercioRudo_CandelaP
             cliente.email = txtEmail.Text;
             cliente.direccion = txtDireccion.Text;
 
-            if (hfIdCliente.Value == "")
+            if (string.IsNullOrEmpty(hfIdCliente.Value))
             {
                 negocio.agregar(cliente);
+                mostrarExito("Cliente agregado correctamente");
             }
             else
             {
                 cliente.id = int.Parse(hfIdCliente.Value);
                 negocio.modificar(cliente);
+                mostrarExito("Cliente modificado correctamente");
             }
 
             pnlFormulario.Visible = false;
@@ -123,10 +172,24 @@ namespace TPC_ComercioRudo_CandelaP
             txtEmail.Text = "";
             txtDireccion.Text = "";
         }
-
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect(ViewState["volver"].ToString());
         }
+
+        private void mostrarError(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-danger";
+            lblMensaje.Visible = true;
+        }
+
+        private void mostrarExito(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-success";
+            lblMensaje.Visible = true;
+        }
+
     }
 }

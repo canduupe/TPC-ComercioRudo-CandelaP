@@ -9,6 +9,13 @@
         <div class="card shadow-sm">
             <div class="card-body">
 
+                <asp:Label
+                    ID="lblMensaje"
+                    runat="server"
+                    Visible="false"
+                    CssClass="alert"
+                    EnableViewState="false" />
+
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h3 class="mb-0">Marcas</h3>
 

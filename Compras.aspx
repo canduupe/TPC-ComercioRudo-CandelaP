@@ -6,6 +6,13 @@
         <div class="card shadow p-4">
             <h4 class="mb-3">Registrar Compra</h4>
 
+            <asp:Label
+                ID="lblMensaje"
+                runat="server"
+                Visible="false"
+                CssClass="alert"
+                EnableViewState="false" />
+
             <label>Proveedor</label>
             <asp:DropDownList
                 ID="ddlProveedor"

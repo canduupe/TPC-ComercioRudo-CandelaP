@@ -40,13 +40,7 @@
 
                     <Columns>
                         <asp:BoundField DataField="nroFactura" HeaderText="Factura" />
-
-                        <asp:TemplateField HeaderText="Cliente">
-                            <ItemTemplate>
-                                <%# Eval("cliente.nombre") %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
+                         <asp:BoundField DataField="Cliente.Apellido" HeaderText="Cliente" />
                         <asp:BoundField DataField="fecha" HeaderText="Fecha" DataFormatString="{0:dd/MM/yyyy}" />
                         <asp:BoundField DataField="total" HeaderText="Total" DataFormatString="$ {0:N2}" />
 
@@ -98,11 +92,7 @@
                         EnableViewState="false">
 
                         <Columns>
-                            <asp:TemplateField HeaderText="Producto">
-                                <ItemTemplate>
-                                    <%# Eval("producto.nombre") %>
-                                </ItemTemplate>
-                            </asp:TemplateField>
+                            <asp:BoundField DataField="producto.nombre" HeaderText="Producto" />
                             <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
                             <asp:BoundField DataField="precioUnitario" HeaderText="Precio" DataFormatString="$ {0:N2}" />
                             <asp:BoundField DataField="subtotal" HeaderText="Subtotal" DataFormatString="$ {0:N2}" />

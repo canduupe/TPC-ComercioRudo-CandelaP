@@ -9,17 +9,6 @@ namespace TPC_ComercioRudo_CandelaP
 {
     public partial class AgregarVenta : Page
     {
-        private List<DetalleVenta> DetallesVenta
-        {
-            get
-            {
-                if (Session["DetallesVenta"] == null)
-                    Session["DetallesVenta"] = new List<DetalleVenta>();
-
-                return (List<DetalleVenta>)Session["DetallesVenta"];
-            }
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["TipoUsuario"] == null || (int)Session["TipoUsuario"] != 2)
@@ -72,7 +61,6 @@ namespace TPC_ComercioRudo_CandelaP
 
         protected void btnNuevaVenta_Click(object sender, EventArgs e)
         {
-            ocultarPaneles();
             pnlVenta.Visible = true;
 
             Session.Remove("DetallesVenta");
@@ -80,14 +68,11 @@ namespace TPC_ComercioRudo_CandelaP
             dgvDetalle.DataBind();
 
             limpiarFormulario();
+            pnlDetalleVenta.Visible = false;
         }
 
         protected void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            dgvDetalle.DataSource = DetallesVenta;
-            dgvDetalle.DataBind();
-            limpiarFormulario();
-
             if (!int.TryParse(txtCantidad.Text, out int cantidad) || cantidad <= 0)
             {
                 mostrarError("Ingrese una cantidad válida.");
@@ -125,6 +110,16 @@ namespace TPC_ComercioRudo_CandelaP
             mostrarExito("Producto agregado.");
         }
 
+        private List<DetalleVenta> DetallesVenta
+        {
+            get
+            {
+                if (Session["DetallesVenta"] == null)
+                    Session["DetallesVenta"] = new List<DetalleVenta>();
+
+                return (List<DetalleVenta>)Session["DetallesVenta"];
+            }
+        }
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
             if (ddlClientes.SelectedValue == "0" || DetallesVenta.Count == 0 || Session["IdVendedor"] == null)
@@ -161,8 +156,6 @@ namespace TPC_ComercioRudo_CandelaP
 
         private void mostrarDetalleVenta(int idVenta)
         {
-            ocultarPaneles();
-
             dgvDetalleVenta.DataSource = new NegocioVenta().listarDetalle(idVenta);
             dgvDetalleVenta.DataBind();
 

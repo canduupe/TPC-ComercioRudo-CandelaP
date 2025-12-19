@@ -8,6 +8,13 @@
         <div class="card shadow-sm">
             <div class="card-body">
 
+                <asp:Label
+                    ID="lblMensaje"
+                    runat="server"
+                    Visible="false"
+                    CssClass="alert"
+                    EnableViewState="false" />
+
                 <div class="d-flex justify-content-between align-items-center mb-3">
 
                     <div>
@@ -41,10 +48,7 @@
                     <Columns>
                         <asp:BoundField DataField="nombre" HeaderText="Producto" />
                         <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
-                        <asp:BoundField
-                            DataField="precio"
-                            HeaderText="Precio"
-                            DataFormatString="{0:C}" />
+                        <asp:BoundField DataField="precio" HeaderText="Precio" DataFormatString="$ {0:N1}"/>
                         <asp:BoundField DataField="Proveedor.nombre" HeaderText="Proveedor" />
                         <asp:BoundField DataField="Marca.nombre" HeaderText="Marca" />
                         <asp:BoundField DataField="Categoria.nombre" HeaderText="Categoría" />

@@ -128,10 +128,22 @@ namespace TPC_ComercioRudo_CandelaP
             hfIdVendedor.Value = "";
             hfIdUsuario.Value = "";
         }
-
         protected void Volver_Click(object sender, EventArgs e)
         {
             Response.Redirect("PanelAdmin.aspx");
+        }
+        private void mostrarError(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-danger";
+            lblMensaje.Visible = true;
+        }
+
+        private void mostrarExito(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-success";
+            lblMensaje.Visible = true;
         }
     }
 }

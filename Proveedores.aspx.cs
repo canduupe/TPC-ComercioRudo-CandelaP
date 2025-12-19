@@ -66,6 +66,7 @@ namespace TPC_ComercioRudo_CandelaP
             if (e.CommandName == "Eliminar")
             {
                 negocio.eliminar(id);
+                mostrarExito("Proveedor eliminado correctamente");
                 cargarGrilla();
             }
 
@@ -84,6 +85,24 @@ namespace TPC_ComercioRudo_CandelaP
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                mostrarError("El nombre del proveedor no puede estar vacio");
+                return;
+            }
+
+            if (ddlMarca.SelectedValue == "0")
+            {
+                mostrarError("Seleccione una marca");
+                return;
+            }
+
+            if (ddlCategoria.SelectedValue == "0")
+            {
+                mostrarError("Seleccione una categoria");
+                return;
+            }
+
             Proveedor proveedor = new Proveedor();
             NegocioProveedor negocio = new NegocioProveedor();
 
@@ -91,16 +110,17 @@ namespace TPC_ComercioRudo_CandelaP
             proveedor.marca = new Marca { id = int.Parse(ddlMarca.SelectedValue) };
             proveedor.categoria = new Categoria { id = int.Parse(ddlCategoria.SelectedValue) };
 
-            if (hfIdProveedor.Value == "")
+            if (string.IsNullOrEmpty(hfIdProveedor.Value))
             {
                 negocio.agregar(proveedor);
+                mostrarExito("Proveedor agregado correctamente");
             }
             else
             {
                 proveedor.id = int.Parse(hfIdProveedor.Value);
                 negocio.modificar(proveedor);
+                mostrarExito("Proveedor modificado correctamente");
             }
-
             pnlFormulario.Visible = false;
             cargarGrilla();
         }
@@ -120,6 +140,20 @@ namespace TPC_ComercioRudo_CandelaP
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("PanelAdmin.aspx");
+        }
+
+        private void mostrarError(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-danger";
+            lblMensaje.Visible = true;
+        }
+
+        private void mostrarExito(string mensaje)
+        {
+            lblMensaje.Text = mensaje;
+            lblMensaje.CssClass = "alert alert-success";
+            lblMensaje.Visible = true;
         }
 
     }

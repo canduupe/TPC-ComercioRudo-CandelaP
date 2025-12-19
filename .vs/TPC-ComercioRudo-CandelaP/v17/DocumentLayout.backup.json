@@ -7,16 +7,32 @@
       "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:inicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\vendedores.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:vendedores.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\vendedores.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:vendedores.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\proveedores.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:proveedores.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\proveedores.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:proveedores.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\categorias.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:categorias.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\productos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:productos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\agregarventa.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:agregarventa.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|c:\\users\\54115\\desktop\\tpc-comerciorudo-candelap\\agregarventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{CE12D7E0-58D0-4CE1-A571-BC8EEE9A0133}|TPC-ComercioRudo.csproj|solutionrelative:agregarventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0169013A-C321-4F87-A2FC-945B86FADE6B}|Negocio\\Negocio.csproj|C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\negocio\\negocioventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0169013A-C321-4F87-A2FC-945B86FADE6B}|Negocio\\Negocio.csproj|solutionrelative:negocio\\negocioventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,40 +61,92 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AgregarVenta.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\AgregarVenta.aspx.cs",
-              "RelativeDocumentMoniker": "AgregarVenta.aspx.cs",
-              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\AgregarVenta.aspx.cs*",
-              "RelativeToolTip": "AgregarVenta.aspx.cs*",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAuwF0AAAANAAAAAAAAAA==",
+              "Title": "Vendedores.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Vendedores.aspx.cs",
+              "RelativeDocumentMoniker": "Vendedores.aspx.cs",
+              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Vendedores.aspx.cs",
+              "RelativeToolTip": "Vendedores.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T15:53:31.088Z",
+              "WhenOpened": "2025-12-19T19:58:40.148Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AgregarVenta.aspx",
-              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\AgregarVenta.aspx",
-              "RelativeDocumentMoniker": "AgregarVenta.aspx",
-              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\AgregarVenta.aspx",
-              "RelativeToolTip": "AgregarVenta.aspx",
+              "Title": "Vendedores.aspx",
+              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Vendedores.aspx",
+              "RelativeDocumentMoniker": "Vendedores.aspx",
+              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Vendedores.aspx",
+              "RelativeToolTip": "Vendedores.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-12-19T15:53:27.381Z",
+              "WhenOpened": "2025-12-19T19:58:37.464Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "NegocioVenta.cs",
-              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Negocio\\NegocioVenta.cs",
-              "RelativeDocumentMoniker": "Negocio\\NegocioVenta.cs",
-              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Negocio\\NegocioVenta.cs",
-              "RelativeToolTip": "Negocio\\NegocioVenta.cs",
-              "ViewState": "AgIAALkAAAAAAAAAAAAAAOMAAAAAAAAAAAAAAA==",
+              "Title": "Proveedores.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Proveedores.aspx.cs",
+              "RelativeDocumentMoniker": "Proveedores.aspx.cs",
+              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Proveedores.aspx.cs",
+              "RelativeToolTip": "Proveedores.aspx.cs",
+              "ViewState": "AgIAAJAAAAAAAAAAAAA3wH4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T02:06:01.556Z",
+              "WhenOpened": "2025-12-19T19:56:03.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Proveedores.aspx",
+              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Proveedores.aspx",
+              "RelativeDocumentMoniker": "Proveedores.aspx",
+              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Proveedores.aspx",
+              "RelativeToolTip": "Proveedores.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-12-19T19:55:59.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Productos.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Productos.aspx.cs",
+              "RelativeDocumentMoniker": "Productos.aspx.cs",
+              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Productos.aspx.cs",
+              "RelativeToolTip": "Productos.aspx.cs",
+              "ViewState": "AgIAAOEAAAAAAAAAAAAqwLsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T19:50:55.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Categorias.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Categorias.aspx.cs",
+              "RelativeDocumentMoniker": "Categorias.aspx.cs",
+              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\Categorias.aspx.cs",
+              "RelativeToolTip": "Categorias.aspx.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAcwGkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T19:16:39.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AgregarVenta.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\AgregarVenta.aspx.cs",
+              "RelativeDocumentMoniker": "AgregarVenta.aspx.cs",
+              "ToolTip": "C:\\Users\\54115\\Desktop\\TPC-ComercioRudo-CandelaP\\AgregarVenta.aspx.cs",
+              "RelativeToolTip": "AgregarVenta.aspx.cs",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAYwFgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T19:15:16.2Z",
               "EditorCaption": ""
             }
           ]
