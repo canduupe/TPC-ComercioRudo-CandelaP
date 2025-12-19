@@ -47,7 +47,6 @@ namespace TPC_ComercioRudo_CandelaP
         {
             if (e.CommandName == "VerDetalle")
             {
-                NegocioVenta negocio = new NegocioVenta();
                 int index = Convert.ToInt32(e.CommandArgument);
                 int idVenta = Convert.ToInt32(dgvVentas.DataKeys[index].Value);
 

@@ -78,27 +78,33 @@
 
                     <div class="row mb-2">
                         <div class="col-md-6">
+                             <label>Nombre</label>
                             <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" Placeholder="Nombre" />
                         </div>
                         <div class="col-md-6">
+                             <label>Precio</label>
                             <asp:TextBox ID="txtPrecio" runat="server" CssClass="form-control" Placeholder="Precio" />
                         </div>
                     </div>
 
                     <div class="row mb-2">
                         <div class="col-md-6">
+                             <label>Stock Actual</label>
                             <asp:TextBox ID="txtStockActual" runat="server" CssClass="form-control" Placeholder="Stock actual" />
                         </div>
                         <div class="col-md-6">
+                             <label>Stock Minimo</label>
                             <asp:TextBox ID="txtStockMinimo" runat="server" CssClass="form-control" Placeholder="Stock mínimo" />
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">
+                             <label>Descripcion</label>
                             <asp:TextBox ID="txtDescripcion" runat="server"
                                 CssClass="form-control" Placeholder="Descripción" />
                         </div>
                         <div class="col-md-3">
+                             <label>Marca</label>
                             <asp:DropDownList
                                 ID="ddlMarca"
                                 runat="server"
@@ -106,6 +112,7 @@
                             </asp:DropDownList>
                         </div>
                         <div class="col-md-3">
+                             <label>Cayegoria</label>
                             <asp:DropDownList
                                 ID="ddlCategoria"
                                 runat="server"
@@ -113,6 +120,7 @@
                             </asp:DropDownList>
                         </div>
                         <div class="col-md-3">
+                             <label>Proveedor</label>
                             <asp:DropDownList
                                 ID="ddlProveedor"
                                 runat="server"

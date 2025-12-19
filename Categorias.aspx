@@ -36,7 +36,6 @@
                     OnRowCommand="dgvCategoria_RowCommand">
 
                     <Columns>
-                        <asp:BoundField DataField="id" HeaderText="ID" />
                         <asp:BoundField DataField="nombre" HeaderText="Categoria" />
 
                         <asp:ButtonField

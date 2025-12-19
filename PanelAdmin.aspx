@@ -36,19 +36,7 @@
                                     PostBackUrl="~/Proveedores.aspx" />
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Vendedores</h5>
-                                <p class="card-text">Administrar vendedores</p>
-                                <asp:Button runat="server" Text="Gestionar"
-                                    CssClass="btn btn-primary"
-                                    PostBackUrl="~/Vendedores.aspx" />
-                            </div>
-                        </div>
-                    </div>
+                    </div>  
 
                     <div class="col-md-4">
                         <div class="card h-100 shadow-sm">

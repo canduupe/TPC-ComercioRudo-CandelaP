@@ -71,52 +71,34 @@
 
                     <div class="row mb-2">
                         <div class="col-md-6">
-                            <asp:TextBox
-                                ID="txtNombre"
-                                runat="server"
-                                CssClass="form-control"
-                                Placeholder="Nombre" />
+                             <label>Nombre</label>
+                            <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" Placeholder="Nombre" />
                         </div>
                         <div class="col-md-6">
-                            <asp:TextBox
-                                ID="txtApellido"
-                                runat="server"
-                                CssClass="form-control"
-                                Placeholder="Apellido" />
+                             <label>Apellido</label>
+                            <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control" Placeholder="Apellido" />
                         </div>
                     </div>
 
                     <div class="row mb-2">
                         <div class="col-md-6">
-                            <asp:TextBox
-                                ID="txtDNI"
-                                runat="server"
-                                CssClass="form-control"
-                                Placeholder="DNI" />
+                             <label>DNI</label>
+                            <asp:TextBox ID="txtDNI" runat="server" CssClass="form-control" Placeholder="DNI" />
                         </div>
                         <div class="col-md-6">
-                            <asp:TextBox
-                                ID="txtTelefono"
-                                runat="server"
-                                CssClass="form-control"
-                                Placeholder="Teléfono" />
+                             <label>Telefono</label>
+                            <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" Placeholder="Teléfono" />
                         </div>
                     </div>
 
                     <div class="row mb-2">
                         <div class="col-md-6">
-                            <asp:TextBox
-                                ID="txtEmail"
-                                runat="server"
-                                CssClass="form-control"
-                                Placeholder="Email" />
+                             <label>Email</label>
+                            <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" Placeholder="Email" />
                         </div>
                         <div class="col-md-6">
-                            <asp:TextBox
-                                ID="txtDireccion"
-                                runat="server"
-                                CssClass="form-control"
-                                Placeholder="Dirección" />
+                             <label>Direccion</label>
+                            <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" Placeholder="Dirección" />
                         </div>
                     </div>
 

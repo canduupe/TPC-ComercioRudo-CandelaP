@@ -39,7 +39,6 @@
                     OnRowCommand="dgvMarcas_RowCommand">
 
                     <Columns>
-                        <asp:BoundField DataField="id" HeaderText="ID" />
                         <asp:BoundField DataField="nombre" HeaderText="Marca" />
 
                         <asp:ButtonField
