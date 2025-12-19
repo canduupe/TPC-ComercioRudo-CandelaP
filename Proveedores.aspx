@@ -17,7 +17,6 @@
                         CssClass="btn btn-success"
                         OnClick="btnNuevo_Click" />
                 </div>
-
                 <hr />
 
                 <asp:GridView
@@ -108,17 +107,17 @@
                     </div>
 
                 </asp:Panel>
-                <div>
-                    <asp:Button
-                        ID="btnVolver"
-                        runat="server"
-                        Text="Volver"
-                        CssClass="btn btn-outline-secondary me-2"
-                        OnClick="btnVolver_Click" />
-                </div>
             </div>
         </div>
-
+        <div>
+            <div>
+                <asp:Button
+                    ID="btnVolver"
+                    runat="server"
+                    Text="Volver"
+                    CssClass="btn btn-outline-secondary me-2"
+                    OnClick="btnVolver_Click" />
+            </div>
     </div>
-
+    </div>
 </asp:Content>

@@ -44,6 +44,18 @@ namespace Negocio
 
         public void RegistrarVenta(Venta venta)
         {
+            if (venta == null)
+                throw new Exception("La venta es nula.");
+
+            if (venta.cliente == null || venta.cliente.id <= 0)
+                throw new Exception("Cliente inválido.");
+
+            if (venta.vendedor == null || venta.vendedor.id <= 0)
+                throw new Exception("Vendedor inválido.");
+
+            if (venta.Detalles == null || venta.Detalles.Count == 0)
+                throw new Exception("La venta no tiene productos.");
+
             AccesoDatos datos = new AccesoDatos();
             NegocioProducto negocioProducto = new NegocioProducto();
 
@@ -54,9 +66,26 @@ namespace Negocio
                 decimal total = 0;
                 foreach (DetalleVenta det in venta.Detalles)
                 {
+                    if (det.cantidad <= 0)
+                        throw new Exception("Cantidad inválida.");
+
+                    if (det.precioUnitario <= 0)
+                        throw new Exception("Precio inválido.");
+
+                    if (det.producto == null || det.producto.id <= 0)
+                        throw new Exception("Producto inválido.");
+
+                    Producto productoDB = negocioProducto.obtenerPorId(det.producto.id);
+
+                    if (productoDB.stockActual < det.cantidad)
+                        throw new Exception($"Stock insuficiente para {productoDB.nombre}");
+
                     det.subtotal = det.cantidad * det.precioUnitario;
                     total += det.subtotal;
                 }
+
+                if (total <= 0)throw new Exception("Total inválido.");
+
                 venta.total = total;
 
                 datos.setearConsulta(
@@ -158,6 +187,46 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public List<DetalleVenta> listarDetalle(int idVenta)
+        {
+            List<DetalleVenta> lista = new List<DetalleVenta>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta(
+                    "SELECT DV.Cantidad, DV.PrecioUnitario, DV.Subtotal, " +
+                    "P.Nombre " +
+                    "FROM DetalleVenta DV " +
+                    "INNER JOIN Producto P ON P.IdProducto = DV.IdProducto " +
+                    "WHERE DV.IdVenta = @IdVenta"
+                );
+
+                datos.setearParametro("@IdVenta", idVenta);
+                datos.realizarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    DetalleVenta det = new DetalleVenta();
+                    det.producto = new Producto();
+                    det.producto.nombre = (string)datos.Lector["Nombre"];
+                    det.cantidad = (int)datos.Lector["Cantidad"];
+                    det.precioUnitario = (decimal)datos.Lector["PrecioUnitario"];
+                    det.subtotal = (decimal)datos.Lector["Subtotal"];
+
+                    lista.Add(det);
+                }
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+            return lista;
+        }
+
+
     }
 }
     

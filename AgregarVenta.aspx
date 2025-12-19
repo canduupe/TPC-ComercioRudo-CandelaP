@@ -24,7 +24,6 @@
                 </div>
 
                 <hr />
-
                 <asp:GridView
                     ID="dgvVentas"
                     runat="server"
@@ -38,6 +37,7 @@
                         <asp:BoundField DataField="Cliente.Apellido" HeaderText="Cliente" />
                         <asp:BoundField DataField="Fecha" HeaderText="Fecha" DataFormatString="{0:dd/MM/yyyy}" />
                         <asp:BoundField DataField="Total" HeaderText="Total" DataFormatString="$ {0:N2}" />
+
                     </Columns>
 
                 </asp:GridView>

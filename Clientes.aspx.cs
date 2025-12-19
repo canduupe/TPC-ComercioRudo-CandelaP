@@ -37,8 +37,8 @@ namespace TPC_ComercioRudo_CandelaP
             {
                 btnNuevo.Visible = false;
 
-                dgvClientes.Columns[5].Visible = false; 
                 dgvClientes.Columns[6].Visible = false; 
+                dgvClientes.Columns[7].Visible = false; 
 
                 ViewState["volver"] = "PanelVendedor.aspx";
             }
@@ -83,7 +83,7 @@ namespace TPC_ComercioRudo_CandelaP
             }
         }
         protected void btnGuardar_Click(object sender, EventArgs e)
-        {
+        {       
             Cliente cliente = new Cliente();
             NegocioCliente negocio = new NegocioCliente();
 

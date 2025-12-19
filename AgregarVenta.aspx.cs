@@ -82,11 +82,25 @@ namespace TPC_ComercioRudo_CandelaP
 
         protected void btnAgregarProducto_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtCantidad.Text))
+                return;
+
+            if (!int.TryParse(txtCantidad.Text, out int cantidad))
+                return;
+
+            if (cantidad <= 0)
+                return;
+
             int idProducto = int.Parse(ddlProductos.SelectedValue);
-            int cantidad = int.Parse(txtCantidad.Text);
 
             NegocioProducto negocioProducto = new NegocioProducto();
             Producto producto = negocioProducto.obtenerPorId(idProducto);
+
+            if (producto == null)
+                return;
+
+            if (producto.stockActual < cantidad)
+                return;
 
             DetalleVenta detalle = new DetalleVenta
             {
@@ -102,10 +116,21 @@ namespace TPC_ComercioRudo_CandelaP
             dgvDetalle.DataBind();
 
             txtCantidad.Text = "";
+            ddlClientes.SelectedIndex = 0;
+            ddlProductos.SelectedIndex = 0;
         }
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
+            if (ddlClientes.SelectedIndex < 0)
+                return;
+
+            if (DetallesVenta == null || DetallesVenta.Count == 0)
+                return;
+
+            if (Session["IdVendedor"] == null)
+                return;
+
             decimal total = 0;
             foreach (var det in DetallesVenta)
             {
@@ -129,6 +154,19 @@ namespace TPC_ComercioRudo_CandelaP
             Session.Remove("DetallesVenta");
 
             cargarVentas();
+        }
+        private void mostrarDetalleVenta(int idVenta)
+        {
+            NegocioVenta negocioVenta = new NegocioVenta();
+            List<DetalleVenta> detalles = negocioVenta.listarDetalle(idVenta);
+
+            pnlVenta.Visible = true;
+
+            dgvDetalle.DataSource = detalles;
+            dgvDetalle.DataBind();
+
+            btnConfirmar.Visible = false;
+            btnAgregarProducto.Visible = false;
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)

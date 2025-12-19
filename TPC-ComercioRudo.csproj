@@ -124,6 +124,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="HistorialCompras.aspx" />
+    <Content Include="HistorialVentas.aspx" />
     <Content Include="Inicio.aspx" />
     <Content Include="Marcas.aspx" />
     <Content Include="PanelAdmin.aspx" />
@@ -186,6 +187,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="Vendedores.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -238,6 +240,13 @@
     </Compile>
     <Compile Include="HistorialCompras.aspx.designer.cs">
       <DependentUpon>HistorialCompras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialVentas.aspx.cs">
+      <DependentUpon>HistorialVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HistorialVentas.aspx.designer.cs">
+      <DependentUpon>HistorialVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
@@ -295,6 +304,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Vendedores.aspx.cs">
+      <DependentUpon>Vendedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vendedores.aspx.designer.cs">
+      <DependentUpon>Vendedores.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

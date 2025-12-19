@@ -13,7 +13,6 @@ INSERT INTO TipoUsuario (Descripcion) VALUES
 ('Administrador'),
 ('Vendedor');
 
-
 Create table Usuarios(
 Id int primary key identity (1,1),
 Usuario varchar(20) not null,
@@ -43,7 +42,6 @@ Create table Administrador(
 
     foreign key (IdUsuario) references Usuarios(Id)
 )
-
 
 Create table Marca(
 IdMarca int primary key identity (1,1),
@@ -82,7 +80,7 @@ Create table Cliente(
     IdCliente int primary key identity(1,1),
     Nombre varchar(50) not null,
     Apellido varchar(50) not null,
-    DNI varchar(15) not null,
+    DNI varchar(8) not null,
     Telefono varchar(20),
     Email varchar(50),
     Direccion varchar(100),
@@ -123,6 +121,7 @@ Create table DetalleVenta(
     foreign key (IdVenta) references Venta(IdVenta),
     foreign key (IdProducto) references Producto(IdProducto)
 )
+
 
 ---INSERTS
 

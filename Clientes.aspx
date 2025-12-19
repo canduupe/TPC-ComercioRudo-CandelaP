@@ -10,10 +10,9 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div>
                         <h3 class="mb-0">Clientes</h3>
-                        <p class="text-muted small">Administración de clientes</p>
                     </div>
 
-                    <div>                    
+                    <div>
                         <asp:Button
                             ID="btnNuevo"
                             runat="server"
@@ -40,6 +39,7 @@
                         <asp:BoundField DataField="DNI" HeaderText="DNI" />
                         <asp:BoundField DataField="Telefono" HeaderText="Teléfono" />
                         <asp:BoundField DataField="Email" HeaderText="Email" />
+                        <asp:BoundField DataField="Direccion" HeaderText="Direccion" />
 
                         <asp:ButtonField
                             Text="Editar"
@@ -130,18 +130,19 @@
                     </div>
 
                 </asp:Panel>
-                <div>
-                    <asp:Button
-                        ID="btnVolver"
-                        runat="server"
-                        Text="Volver"
-                        CssClass="btn btn-outline-secondary me-2"
-                        OnClick="btnVolver_Click" />
-                </div>
+
             </div>
+        </div>
+        <div>
+             <div>
+            <asp:Button
+                ID="btnVolver"
+                runat="server"
+                Text="Volver"
+                CssClass="btn btn-outline-secondary me-2"
+                OnClick="btnVolver_Click" />
+        </div>
     </div>
-
     </div>
-
 </asp:Content>
 
